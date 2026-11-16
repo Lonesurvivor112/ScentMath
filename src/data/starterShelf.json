@@ -1,0 +1,23 @@
+[
+  { "oilId": "peppermint", "brand": "Plant Therapy", "sizeMl": 10, "count": 3, "notes": "1 organic" },
+  { "oilId": "lavender", "brand": "Plant Therapy", "sizeMl": 10, "count": 2 },
+  { "oilId": "lemon", "brand": "Plant Therapy", "sizeMl": 10, "count": 2 },
+  { "oilId": "sweet-orange", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "pink-grapefruit", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "bergamot", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "spearmint", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "eucalyptus-globulus", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "rosemary-cineole", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "tea-tree", "brand": "Plant Therapy", "sizeMl": 10, "count": 1, "notes": "Organic" },
+  { "oilId": "clary-sage", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "cinnamon-cassia", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "ylang-ylang", "brand": "Cliganic", "sizeMl": 10, "count": 1, "notes": "Organic" },
+  { "oilId": "frankincense-carteri", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "patchouli", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "holiday-season", "brand": "Plant Therapy", "sizeMl": 10, "count": 2 },
+  { "oilId": "germ-fighter", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "balance", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "blues-buster", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "pumpkin-spice", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 },
+  { "oilId": "apple-cider", "brand": "Plant Therapy", "sizeMl": 10, "count": 1 }
+]

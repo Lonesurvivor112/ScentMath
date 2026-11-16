@@ -1,0 +1,101 @@
+[
+  {
+    "id": "bright-morning",
+    "name": "Bright morning",
+    "goal": "energize",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "sweet-orange", "parts": 3 },
+      { "oilId": "peppermint", "parts": 2 },
+      { "oilId": "rosemary-cineole", "parts": 1 }
+    ]
+  },
+  {
+    "id": "focus",
+    "name": "Focus",
+    "goal": "focus",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "lemon", "parts": 2 },
+      { "oilId": "rosemary-cineole", "parts": 2 },
+      { "oilId": "spearmint", "parts": 1 }
+    ]
+  },
+  {
+    "id": "wind-down",
+    "name": "Wind down",
+    "goal": "sleep",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "lavender", "parts": 3 },
+      { "oilId": "bergamot", "parts": 2 },
+      { "oilId": "clary-sage", "parts": 1 }
+    ]
+  },
+  {
+    "id": "grounding",
+    "name": "Grounding",
+    "goal": "calm",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "sweet-orange", "parts": 3 },
+      { "oilId": "frankincense-carteri", "parts": 2 },
+      { "oilId": "patchouli", "parts": 1 }
+    ]
+  },
+  {
+    "id": "spa-day",
+    "name": "Spa day",
+    "goal": "calm",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "bergamot", "parts": 3 },
+      { "oilId": "pink-grapefruit", "parts": 2 },
+      { "oilId": "ylang-ylang", "parts": 1 }
+    ]
+  },
+  {
+    "id": "clean-house",
+    "name": "Clean house",
+    "goal": "fresh",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "lemon", "parts": 3 },
+      { "oilId": "tea-tree", "parts": 2 },
+      { "oilId": "eucalyptus-globulus", "parts": 1 }
+    ]
+  },
+  {
+    "id": "stuffy-head",
+    "name": "Stuffy head",
+    "goal": "breathe",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "eucalyptus-globulus", "parts": 2 },
+      { "oilId": "peppermint", "parts": 2 },
+      { "oilId": "lemon", "parts": 1 }
+    ]
+  },
+  {
+    "id": "cozy-fall",
+    "name": "Cozy fall",
+    "goal": "cozy",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "sweet-orange", "parts": 3 },
+      { "oilId": "frankincense-carteri", "parts": 2 },
+      { "oilId": "cinnamon-cassia", "parts": 1 }
+    ]
+  },
+  {
+    "id": "mood-lift",
+    "name": "Mood lift",
+    "goal": "uplift",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "pink-grapefruit", "parts": 3 },
+      { "oilId": "lavender", "parts": 2 },
+      { "oilId": "blues-buster", "parts": 1 }
+    ]
+  }
+]

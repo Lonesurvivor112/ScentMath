@@ -1,0 +1,740 @@
+[
+  {
+    "id": "sweet-orange", "name": "Sweet Orange", "latinName": "Citrus sinensis", "kind": "single",
+    "families": ["citrus"], "note": "top", "intensity": 2,
+    "moods": ["uplift", "energize", "cozy"],
+    "affinities": ["frankincense-carteri", "peppermint", "cinnamon-cassia", "clove-bud", "lavender", "patchouli", "ylang-ylang", "cedarwood-atlas", "ginger", "vanilla"],
+    "safety": {
+      "phototoxic": false, "dermalMaxPct": 5, "catCaution": true, "oxidizesFast": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 2-5% in a carrier', listed KidSafe and Pregnancy Safe, no sun caution (https://www.planttherapy.com/products/sweet-orange-essential-oil). Not on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Read Nov 2026."
+    }
+  },
+  {
+    "id": "lemon", "name": "Lemon", "latinName": "Citrus limon", "kind": "single",
+    "families": ["citrus"], "note": "top", "intensity": 2,
+    "moods": ["energize", "focus", "fresh", "uplift"],
+    "affinities": ["lavender", "rosemary-cineole", "peppermint", "spearmint", "tea-tree", "eucalyptus-globulus", "frankincense-carteri", "geranium", "basil"],
+    "safety": {
+      "phototoxic": true, "phototoxicMaxPct": 2, "dermalMaxPct": 2, "catCaution": true, "oxidizesFast": true,
+      "review": "full",
+      "source": "Plant Therapy product page (cold-pressed): 'Lemon Essential Oil is phototoxic. Do not exceed 2% in leave-on topical formulations', 'Maximum dilution of 2% for topical applications', listed KidSafe and Pregnancy Safe (https://www.planttherapy.com/products/lemon-essential-oil). Lemon (expressed) 2.0% on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Read Nov 2026."
+    }
+  },
+  {
+    "id": "pink-grapefruit", "name": "Pink Grapefruit", "latinName": "Citrus paradisi", "kind": "single",
+    "families": ["citrus"], "note": "top", "intensity": 2,
+    "moods": ["uplift", "energize", "fresh"],
+    "affinities": ["bergamot", "ylang-ylang", "lavender", "peppermint", "rosemary-cineole", "geranium", "cypress", "juniper-berry"],
+    "safety": {
+      "phototoxic": true, "phototoxicMaxPct": 4, "dermalMaxPct": 4, "catCaution": true, "oxidizesFast": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Pink Grapefruit can cause photosensitivity. To avoid this, we recommend a dilution no higher than 4%', listed KidSafe and Pregnancy Safe (https://www.planttherapy.com/products/pink-grapefruit-essential-oil). Grapefruit (expressed) 4.0% on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Read Nov 2026."
+    }
+  },
+  {
+    "id": "bergamot", "name": "Bergamot", "latinName": "Citrus bergamia", "kind": "single",
+    "families": ["citrus"], "note": "top", "intensity": 2,
+    "moods": ["calm", "uplift", "sleep"],
+    "affinities": ["lavender", "clary-sage", "ylang-ylang", "frankincense-carteri", "pink-grapefruit", "geranium", "cedarwood-atlas", "patchouli", "sandalwood"],
+    "safety": {
+      "phototoxic": true, "phototoxicMaxPct": 0.4, "dermalMaxPct": 5, "catCaution": true, "oxidizesFast": true,
+      "review": "full",
+      "source": "Bergamot 0.4% on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Plant Therapy's product page is inconsistent: it says its Bergamot 'is free of bergapten' and also says 'If applied on the skin, ensure limited sun exposure', so the standard bergamot limit is used here. Check your bottle: if it says bergapten-free or FCF, the sun limit does not apply. 'Dilute to 2-5% in a carrier', listed KidSafe and Pregnancy Safe (https://www.planttherapy.com/products/bergamot-essential-oil). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Read Nov 2026."
+    }
+  },
+  {
+    "id": "lime", "name": "Lime", "latinName": "Citrus aurantifolia", "kind": "single",
+    "families": ["citrus"], "note": "top", "intensity": 3,
+    "moods": ["energize", "fresh", "uplift"],
+    "affinities": ["spearmint", "lemon", "ginger", "basil", "vanilla", "lemongrass", "black-pepper"],
+    "safety": {
+      "phototoxic": true, "phototoxicMaxPct": 0.7, "catCaution": true, "oxidizesFast": true,
+      "review": "partial",
+      "source": "Lime (expressed) 0.7% on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/) (assumes cold-pressed). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Children, pregnancy and other rules not yet checked. Read Nov 2026."
+    }
+  },
+  {
+    "id": "tangerine", "name": "Tangerine", "latinName": "Citrus reticulata", "kind": "single",
+    "families": ["citrus"], "note": "top", "intensity": 2,
+    "moods": ["uplift", "calm", "cozy"],
+    "affinities": ["lavender", "geranium", "pink-grapefruit", "cinnamon-bark", "clove-bud", "frankincense-carteri", "roman-chamomile"],
+    "safety": {
+      "phototoxic": false, "catCaution": true, "oxidizesFast": true,
+      "review": "partial",
+      "source": "Tangerine (expressed) named as not phototoxic by the Tisserand Institute (https://tisserandinstitute.org/safety/phototoxicity/). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Children, pregnancy and other rules not yet checked. Read Nov 2026."
+    }
+  },
+  {
+    "id": "mandarin", "name": "Mandarin", "latinName": "Citrus reticulata", "kind": "single",
+    "families": ["citrus", "sweet"], "note": "top", "intensity": 2,
+    "moods": ["calm", "sleep", "uplift"],
+    "affinities": ["lavender", "roman-chamomile", "neroli", "sandalwood", "petitgrain", "ho-wood"],
+    "safety": {
+      "phototoxic": true, "phototoxicMaxPct": 5, "catCaution": true, "oxidizesFast": true,
+      "review": "partial",
+      "source": "Mandarin fruit (expressed) 5.0% on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Children, pregnancy and other rules not yet checked. Read Nov 2026."
+    }
+  },
+  {
+    "id": "blood-orange", "name": "Blood Orange", "latinName": "Citrus sinensis", "kind": "single",
+    "families": ["citrus"], "note": "top", "intensity": 2,
+    "moods": ["uplift", "cozy", "energize"],
+    "affinities": ["cinnamon-bark", "clove-bud", "vanilla", "cardamom", "copaiba", "ginger", "patchouli"],
+    "safety": {
+      "catCaution": true, "oxidizesFast": true,
+      "review": "none",
+      "source": "Citrus oil. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet. Fast-oxidizing flag from the PLAN.md safety table."
+    }
+  },
+  {
+    "id": "lemongrass", "name": "Lemongrass", "latinName": "Cymbopogon flexuosus", "kind": "single",
+    "families": ["citrus", "herbaceous"], "note": "top", "intensity": 4,
+    "moods": ["fresh", "energize"],
+    "affinities": ["lime", "ginger", "basil", "geranium", "tea-tree", "cedarwood-atlas"],
+    "safety": {
+      "dermalMaxPct": 0.7,
+      "review": "partial",
+      "source": "Lemongrass 0.7% on the Tisserand Institute allergenic oils topical maximums table (https://tisserandinstitute.org/safety/irritation-allergic-reactions/). Children, pregnancy and other rules not yet checked. Read Nov 2026."
+    }
+  },
+  {
+    "id": "citronella", "name": "Citronella", "latinName": "Cymbopogon winterianus", "kind": "single",
+    "families": ["citrus", "herbaceous"], "note": "top", "intensity": 4,
+    "moods": ["fresh"],
+    "affinities": ["lemongrass", "cedarwood-virginian", "lavender", "geranium", "pine"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "petitgrain", "name": "Petitgrain", "latinName": "Citrus aurantium (leaf)", "kind": "single",
+    "families": ["citrus", "herbaceous"], "note": "top", "intensity": 3,
+    "moods": ["calm", "uplift", "focus"],
+    "affinities": ["neroli", "lavender", "bergamot", "clary-sage", "geranium", "mandarin", "palmarosa"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "may-chang", "name": "May Chang (Litsea)", "latinName": "Litsea cubeba", "kind": "single",
+    "families": ["citrus"], "note": "top", "intensity": 3,
+    "moods": ["uplift", "fresh", "energize"],
+    "affinities": ["lemon", "sweet-orange", "lavender", "ginger", "rosemary-cineole", "basil"],
+    "safety": {
+      "dermalMaxPct": 0.8,
+      "review": "partial",
+      "source": "May chang 0.8% on the Tisserand Institute allergenic oils topical maximums table (https://tisserandinstitute.org/safety/irritation-allergic-reactions/). Children, pregnancy and other rules not yet checked. Read Nov 2026."
+    }
+  },
+  {
+    "id": "neroli", "name": "Neroli", "latinName": "Citrus aurantium (flower)", "kind": "single",
+    "families": ["floral", "citrus"], "note": "middle", "intensity": 4,
+    "moods": ["calm", "sleep", "uplift"],
+    "affinities": ["petitgrain", "mandarin", "lavender", "sandalwood", "bergamot", "rose-absolute", "jasmine-absolute", "frankincense-carteri"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "lavender", "name": "Lavender", "latinName": "Lavandula angustifolia", "kind": "single",
+    "families": ["floral", "herbaceous"], "note": "middle", "intensity": 2,
+    "moods": ["calm", "sleep"],
+    "affinities": ["bergamot", "lemon", "sweet-orange", "clary-sage", "frankincense-carteri", "cedarwood-atlas", "peppermint", "rosemary-cineole", "geranium", "roman-chamomile", "tea-tree", "patchouli", "pink-grapefruit"],
+    "safety": {
+      "dermalMaxPct": 5,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 2-5% in a carrier', listed KidSafe and Pregnancy Safe (https://www.planttherapy.com/products/lavender-essential-oil). Not named in the Plant Therapy cats guide. Not on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Read Nov 2026."
+    }
+  },
+  {
+    "id": "ylang-ylang", "name": "Ylang Ylang", "latinName": "Cananga odorata", "kind": "single",
+    "families": ["floral"], "note": "middle", "intensity": 4,
+    "moods": ["calm", "sleep", "uplift"],
+    "affinities": ["bergamot", "pink-grapefruit", "sweet-orange", "sandalwood", "patchouli", "lavender", "frankincense-carteri", "vanilla", "jasmine-absolute"],
+    "safety": {
+      "dermalMaxPct": 0.8,
+      "review": "full",
+      "source": "Ylang-Ylang 0.8% on the Tisserand Institute allergenic oils topical maximums table (https://tisserandinstitute.org/safety/irritation-allergic-reactions/). Plant Therapy product page: 'Maximum dilution of 0.8% for topical applications', listed KidSafe and Pregnancy Safe (https://www.planttherapy.com/products/ylang-ylang-complete-essential-oil). The shelf bottle is Cliganic; these values are for the same species. Not named in the Plant Therapy cats guide. Read Nov 2026."
+    }
+  },
+  {
+    "id": "geranium", "name": "Geranium", "latinName": "Pelargonium graveolens", "kind": "single",
+    "families": ["floral"], "note": "middle", "intensity": 4,
+    "moods": ["calm", "uplift"],
+    "affinities": ["lavender", "bergamot", "pink-grapefruit", "lemon", "clary-sage", "patchouli", "cedarwood-atlas", "palmarosa", "rose-absolute", "tangerine"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "roman-chamomile", "name": "Roman Chamomile", "latinName": "Chamaemelum nobile", "kind": "single",
+    "families": ["floral", "herbaceous"], "note": "middle", "intensity": 4,
+    "moods": ["calm", "sleep"],
+    "affinities": ["lavender", "mandarin", "bergamot", "clary-sage", "sweet-marjoram", "cedarwood-atlas", "neroli"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "rose-absolute", "name": "Rose Absolute", "latinName": "Rosa damascena", "kind": "single",
+    "families": ["floral"], "note": "middle", "intensity": 4,
+    "moods": ["calm", "uplift"],
+    "affinities": ["geranium", "sandalwood", "bergamot", "patchouli", "jasmine-absolute", "frankincense-carteri", "palmarosa"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "jasmine-absolute", "name": "Jasmine Absolute", "latinName": "Jasminum grandiflorum", "kind": "single",
+    "families": ["floral", "sweet"], "note": "middle", "intensity": 5,
+    "moods": ["calm", "uplift"],
+    "affinities": ["ylang-ylang", "sandalwood", "sweet-orange", "bergamot", "rose-absolute", "vanilla"],
+    "safety": {
+      "dermalMaxPct": 0.7,
+      "review": "partial",
+      "source": "Jasmine absolute 0.7% on the Tisserand Institute allergenic oils topical maximums table (https://tisserandinstitute.org/safety/irritation-allergic-reactions/). Children, pregnancy and other rules not yet checked. Read Nov 2026."
+    }
+  },
+  {
+    "id": "palmarosa", "name": "Palmarosa", "latinName": "Cymbopogon martinii", "kind": "single",
+    "families": ["floral", "herbaceous"], "note": "middle", "intensity": 3,
+    "moods": ["calm", "uplift", "fresh"],
+    "affinities": ["geranium", "lavender", "bergamot", "rose-absolute", "cedarwood-atlas", "lime"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "lavandin", "name": "Lavandin", "latinName": "Lavandula x intermedia", "kind": "single",
+    "families": ["floral", "camphoraceous"], "note": "middle", "intensity": 3,
+    "moods": ["fresh", "calm"],
+    "affinities": ["rosemary-cineole", "lemon", "pine", "cypress", "eucalyptus-radiata", "clary-sage"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "clary-sage", "name": "Clary Sage", "latinName": "Salvia sclarea", "kind": "single",
+    "families": ["herbaceous", "floral"], "note": "middle", "intensity": 3,
+    "moods": ["calm", "sleep"],
+    "affinities": ["lavender", "bergamot", "geranium", "cedarwood-atlas", "sandalwood", "frankincense-carteri", "roman-chamomile"],
+    "safety": {
+      "dermalMaxPct": 5, "pregnancyCaution": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 2-5% in a carrier', listed KidSafe and Nursing Safe but not Pregnancy Safe (https://www.planttherapy.com/products/clary-sage-essential-oil). Pregnancy flag also in the PLAN.md safety table. Not named in the Plant Therapy cats guide. Not on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Read Nov 2026."
+    }
+  },
+  {
+    "id": "rosemary-cineole", "name": "Rosemary 1,8-Cineole", "latinName": "Rosmarinus officinalis ct. 1,8-cineole", "kind": "single",
+    "families": ["herbaceous", "camphoraceous"], "note": "middle", "intensity": 3,
+    "moods": ["focus", "energize", "breathe"],
+    "affinities": ["lemon", "peppermint", "lavender", "eucalyptus-globulus", "sweet-orange", "basil", "cedarwood-atlas", "pink-grapefruit", "spearmint"],
+    "safety": {
+      "dermalMaxPct": 4, "kidsCaution": true, "kidsMinAge": 10, "catCaution": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Maximum dilution of 4% for topical applications', 'Do not apply to or near the face of infants or young children', listed Pregnancy Safe, not listed KidSafe (https://www.planttherapy.com/products/rosemary-1-8-cineole-essential-oil). Age 10 from Plant Therapy, 'What Does KidSafe Really Mean': 'Once a child has reached age 10 ... nearly all oils are safe for use' (https://www.planttherapy.com/blogs/blog/what-does-kidsafe-really-mean). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Not on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Read Nov 2026."
+    }
+  },
+  {
+    "id": "basil", "name": "Basil (Sweet)", "latinName": "Ocimum basilicum", "kind": "single",
+    "families": ["herbaceous"], "note": "top", "intensity": 4,
+    "moods": ["focus", "energize"],
+    "affinities": ["lemon", "lime", "bergamot", "rosemary-cineole", "peppermint", "lavender", "black-pepper"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "sweet-marjoram", "name": "Sweet Marjoram", "latinName": "Origanum majorana", "kind": "single",
+    "families": ["herbaceous"], "note": "middle", "intensity": 3,
+    "moods": ["calm", "sleep"],
+    "affinities": ["lavender", "roman-chamomile", "cedarwood-atlas", "bergamot", "sweet-orange", "cypress"],
+    "safety": {
+      "catCaution": true,
+      "review": "none",
+      "source": "Marjoram is named. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet."
+    }
+  },
+  {
+    "id": "thyme-linalool", "name": "Thyme Linalool", "latinName": "Thymus vulgaris ct. linalool", "kind": "single",
+    "families": ["herbaceous"], "note": "middle", "intensity": 4,
+    "moods": ["fresh", "focus"],
+    "affinities": ["lemon", "rosemary-cineole", "tea-tree", "lavender", "bergamot", "eucalyptus-radiata"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "fennel", "name": "Fennel (Sweet)", "latinName": "Foeniculum vulgare", "kind": "single",
+    "families": ["sweet", "herbaceous"], "note": "middle", "intensity": 4,
+    "moods": ["cozy"],
+    "affinities": ["sweet-orange", "lavender", "geranium", "ginger", "cardamom", "black-pepper"],
+    "safety": {
+      "catCaution": true,
+      "review": "none",
+      "source": "Fennel is named. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet."
+    }
+  },
+  {
+    "id": "peppermint", "name": "Peppermint", "latinName": "Mentha x piperita", "kind": "single",
+    "families": ["minty"], "note": "top", "intensity": 4,
+    "moods": ["energize", "focus", "breathe", "fresh"],
+    "affinities": ["lemon", "sweet-orange", "rosemary-cineole", "eucalyptus-globulus", "lavender", "spearmint", "pink-grapefruit", "tea-tree", "vanilla"],
+    "safety": {
+      "dermalMaxPct": 5, "kidsCaution": true, "kidsMinAge": 10, "catCaution": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Maximum dilution of 5% for topical applications', 'Do not apply to or near the face of infants or young children', listed Pregnancy Safe, not listed KidSafe (https://www.planttherapy.com/products/peppermint-essential-oil). Age 10 from Plant Therapy, 'What Does KidSafe Really Mean': 'Once a child has reached age 10 ... nearly all oils are safe for use' (https://www.planttherapy.com/blogs/blog/what-does-kidsafe-really-mean). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Not on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Read Nov 2026."
+    }
+  },
+  {
+    "id": "spearmint", "name": "Spearmint", "latinName": "Mentha spicata", "kind": "single",
+    "families": ["minty"], "note": "top", "intensity": 3,
+    "moods": ["energize", "focus", "fresh", "uplift"],
+    "affinities": ["lemon", "lime", "peppermint", "rosemary-cineole", "lavender", "eucalyptus-radiata", "basil"],
+    "safety": {
+      "dermalMaxPct": 1.7, "catCaution": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Maximum dilution of 1.7% for topical applications', listed KidSafe and Pregnancy Safe (https://www.planttherapy.com/products/spearmint-essential-oil). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Not on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Read Nov 2026."
+    }
+  },
+  {
+    "id": "eucalyptus-globulus", "name": "Eucalyptus Globulus", "latinName": "Eucalyptus globulus", "kind": "single",
+    "families": ["camphoraceous"], "note": "top", "intensity": 4,
+    "moods": ["breathe", "fresh", "focus"],
+    "affinities": ["peppermint", "lemon", "tea-tree", "rosemary-cineole", "lavender", "pine", "cedarwood-atlas"],
+    "safety": {
+      "dermalMaxPct": 5, "kidsCaution": true, "kidsMinAge": 10, "catCaution": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 2-5% in a carrier', 'Do not apply to or near the face of infants or young children', listed Pregnancy Safe, not listed KidSafe (https://www.planttherapy.com/products/eucalyptus-globulus-essential-oil). Age 10 from Plant Therapy, 'What Does KidSafe Really Mean': 'Once a child has reached age 10 ... nearly all oils are safe for use' (https://www.planttherapy.com/blogs/blog/what-does-kidsafe-really-mean). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Not on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Read Nov 2026."
+    }
+  },
+  {
+    "id": "eucalyptus-radiata", "name": "Eucalyptus Radiata", "latinName": "Eucalyptus radiata", "kind": "single",
+    "families": ["camphoraceous"], "note": "top", "intensity": 3,
+    "moods": ["breathe", "fresh"],
+    "affinities": ["lemon", "lavender", "peppermint", "tea-tree", "siberian-fir", "spearmint", "ravintsara"],
+    "safety": {
+      "kidsCaution": true, "catCaution": true,
+      "review": "none",
+      "source": "Eucalyptus. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet. Children flag from the PLAN.md safety table (eucalyptus); age not yet sourced."
+    }
+  },
+  {
+    "id": "tea-tree", "name": "Tea Tree", "latinName": "Melaleuca alternifolia", "kind": "single",
+    "families": ["camphoraceous"], "note": "middle", "intensity": 4,
+    "moods": ["fresh", "breathe"],
+    "affinities": ["lemon", "lavender", "eucalyptus-globulus", "rosemary-cineole", "peppermint", "thyme-linalool", "pine"],
+    "safety": {
+      "dermalMaxPct": 5, "catCaution": true, "oxidizesFast": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 2-5% in a carrier', listed KidSafe and Pregnancy Safe (https://www.planttherapy.com/products/tea-tree-essential-oil). Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Not on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Read Nov 2026."
+    }
+  },
+  {
+    "id": "ravintsara", "name": "Ravintsara", "latinName": "Cinnamomum camphora ct. 1,8-cineole", "kind": "single",
+    "families": ["camphoraceous"], "note": "middle", "intensity": 3,
+    "moods": ["breathe", "fresh"],
+    "affinities": ["lemon", "eucalyptus-radiata", "tea-tree", "frankincense-carteri", "lavender", "black-spruce"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "cedarwood-atlas", "name": "Cedarwood Atlas", "latinName": "Cedrus atlantica", "kind": "single",
+    "families": ["woody"], "note": "base", "intensity": 3,
+    "moods": ["calm", "sleep", "cozy", "focus"],
+    "affinities": ["lavender", "bergamot", "sweet-orange", "frankincense-carteri", "clary-sage", "cypress", "vetiver", "patchouli", "rosemary-cineole"],
+    "safety": {
+      "catCaution": true,
+      "review": "none",
+      "source": "Coniferous oil. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet."
+    }
+  },
+  {
+    "id": "cedarwood-virginian", "name": "Cedarwood Virginian", "latinName": "Juniperus virginiana", "kind": "single",
+    "families": ["woody"], "note": "base", "intensity": 3,
+    "moods": ["calm", "sleep", "cozy"],
+    "affinities": ["lavender", "sweet-orange", "cypress", "juniper-berry", "patchouli", "vetiver", "cinnamon-leaf"],
+    "safety": {
+      "catCaution": true,
+      "review": "none",
+      "source": "Coniferous oil. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet."
+    }
+  },
+  {
+    "id": "sandalwood", "name": "Sandalwood (Australian)", "latinName": "Santalum spicatum", "kind": "single",
+    "families": ["woody"], "note": "base", "intensity": 2,
+    "moods": ["calm", "sleep"],
+    "affinities": ["ylang-ylang", "rose-absolute", "jasmine-absolute", "lavender", "bergamot", "frankincense-carteri", "neroli", "vanilla", "patchouli"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "cypress", "name": "Cypress", "latinName": "Cupressus sempervirens", "kind": "single",
+    "families": ["woody"], "note": "middle", "intensity": 3,
+    "moods": ["fresh", "focus", "breathe"],
+    "affinities": ["juniper-berry", "pink-grapefruit", "lemon", "lavender", "cedarwood-atlas", "pine", "bergamot"],
+    "safety": {
+      "catCaution": true,
+      "review": "none",
+      "source": "Coniferous oil. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet."
+    }
+  },
+  {
+    "id": "juniper-berry", "name": "Juniper Berry", "latinName": "Juniperus communis", "kind": "single",
+    "families": ["woody", "herbaceous"], "note": "middle", "intensity": 3,
+    "moods": ["fresh", "focus", "calm"],
+    "affinities": ["cypress", "pink-grapefruit", "lemon", "rosemary-cineole", "cedarwood-virginian", "bergamot", "frankincense-serrata"],
+    "safety": {
+      "catCaution": true,
+      "review": "none",
+      "source": "Coniferous oil. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet."
+    }
+  },
+  {
+    "id": "siberian-fir", "name": "Siberian Fir", "latinName": "Abies sibirica", "kind": "single",
+    "families": ["woody", "camphoraceous"], "note": "middle", "intensity": 3,
+    "moods": ["fresh", "breathe", "cozy"],
+    "affinities": ["sweet-orange", "pine", "cedarwood-atlas", "frankincense-carteri", "eucalyptus-radiata", "lemon", "cinnamon-bark"],
+    "safety": {
+      "catCaution": true,
+      "review": "none",
+      "source": "Coniferous oil. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet."
+    }
+  },
+  {
+    "id": "balsam-fir", "name": "Balsam Fir", "latinName": "Abies balsamea", "kind": "single",
+    "families": ["woody", "resinous"], "note": "middle", "intensity": 3,
+    "moods": ["cozy", "fresh", "breathe"],
+    "affinities": ["sweet-orange", "cinnamon-bark", "clove-bud", "frankincense-carteri", "cedarwood-atlas", "black-spruce"],
+    "safety": {
+      "catCaution": true,
+      "review": "none",
+      "source": "Coniferous oil. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet."
+    }
+  },
+  {
+    "id": "pine", "name": "Pine (Scots)", "latinName": "Pinus sylvestris", "kind": "single",
+    "families": ["woody", "camphoraceous"], "note": "middle", "intensity": 3,
+    "moods": ["fresh", "breathe", "energize"],
+    "affinities": ["eucalyptus-globulus", "cedarwood-atlas", "lemon", "rosemary-cineole", "cypress", "siberian-fir", "juniper-berry"],
+    "safety": {
+      "catCaution": true,
+      "review": "none",
+      "source": "Coniferous oil. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet."
+    }
+  },
+  {
+    "id": "black-spruce", "name": "Black Spruce", "latinName": "Picea mariana", "kind": "single",
+    "families": ["woody"], "note": "middle", "intensity": 3,
+    "moods": ["calm", "breathe", "focus"],
+    "affinities": ["frankincense-carteri", "cedarwood-atlas", "sweet-orange", "pine", "lavender", "balsam-fir"],
+    "safety": {
+      "catCaution": true,
+      "review": "none",
+      "source": "Coniferous oil. Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Nothing else reviewed yet."
+    }
+  },
+  {
+    "id": "ho-wood", "name": "Ho Wood", "latinName": "Cinnamomum camphora ct. linalool", "kind": "single",
+    "families": ["woody", "floral"], "note": "middle", "intensity": 2,
+    "moods": ["calm", "sleep"],
+    "affinities": ["lavender", "mandarin", "ylang-ylang", "sandalwood", "bergamot", "geranium"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "frankincense-carteri", "name": "Frankincense Carteri", "latinName": "Boswellia carterii", "kind": "single",
+    "families": ["resinous"], "note": "base", "intensity": 2,
+    "moods": ["calm", "focus", "sleep"],
+    "affinities": ["sweet-orange", "lavender", "bergamot", "lemon", "myrrh", "sandalwood", "cedarwood-atlas", "patchouli", "cinnamon-cassia", "clary-sage"],
+    "safety": {
+      "dermalMaxPct": 3,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 1-3% in a carrier', listed KidSafe and Pregnancy Safe (https://www.planttherapy.com/products/frankincense-carterii-essential-oil). Not named in the Plant Therapy cats guide. Not on the Tisserand Institute phototoxic limits table (https://tisserandinstitute.org/safety/phototoxicity/). Read Nov 2026."
+    }
+  },
+  {
+    "id": "frankincense-serrata", "name": "Frankincense Serrata", "latinName": "Boswellia serrata", "kind": "single",
+    "families": ["resinous"], "note": "base", "intensity": 2,
+    "moods": ["calm", "focus"],
+    "affinities": ["sweet-orange", "lemon", "lavender", "myrrh", "cedarwood-atlas", "juniper-berry", "black-pepper"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "myrrh", "name": "Myrrh", "latinName": "Commiphora myrrha", "kind": "single",
+    "families": ["resinous"], "note": "base", "intensity": 4,
+    "moods": ["calm", "cozy"],
+    "affinities": ["frankincense-carteri", "frankincense-serrata", "sandalwood", "patchouli", "sweet-orange", "lavender", "clove-bud"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "copaiba", "name": "Copaiba", "latinName": "Copaifera officinalis", "kind": "single",
+    "families": ["resinous", "woody"], "note": "base", "intensity": 1,
+    "moods": ["calm", "sleep", "cozy"],
+    "affinities": ["cedarwood-atlas", "frankincense-carteri", "blood-orange", "vanilla", "lavender", "ylang-ylang", "cinnamon-bark"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "benzoin", "name": "Benzoin", "latinName": "Styrax tonkinensis", "kind": "single",
+    "families": ["sweet", "resinous"], "note": "base", "intensity": 3,
+    "moods": ["cozy", "calm"],
+    "affinities": ["sweet-orange", "sandalwood", "frankincense-carteri", "vanilla", "rose-absolute", "cinnamon-bark", "patchouli"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "cinnamon-cassia", "name": "Cinnamon Cassia", "latinName": "Cinnamomum cassia", "kind": "single",
+    "families": ["spicy"], "note": "middle", "intensity": 5,
+    "moods": ["cozy", "energize"],
+    "affinities": ["sweet-orange", "clove-bud", "frankincense-carteri", "ginger", "nutmeg", "cardamom", "vanilla"],
+    "safety": {
+      "dermalMaxPct": 0.05, "diffuseOnly": true, "kidsCaution": true, "kidsMinAge": 10, "pregnancyCaution": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Maximum dilution of 0.05% for topical applications', 'Do not use if pregnant or breastfeeding', not listed KidSafe (https://www.planttherapy.com/products/cinnamon-cassia-essential-oil). Cassia 0.05% on the Tisserand Institute allergenic oils topical maximums table (https://tisserandinstitute.org/safety/irritation-allergic-reactions/). Diffuser-only label from the PLAN.md safety table. Age 10 from Plant Therapy, 'What Does KidSafe Really Mean': 'Once a child has reached age 10 ... nearly all oils are safe for use' (https://www.planttherapy.com/blogs/blog/what-does-kidsafe-really-mean). Read Nov 2026."
+    }
+  },
+  {
+    "id": "cinnamon-bark", "name": "Cinnamon Bark", "latinName": "Cinnamomum zeylanicum", "kind": "single",
+    "families": ["spicy"], "note": "middle", "intensity": 5,
+    "moods": ["cozy"],
+    "affinities": ["sweet-orange", "clove-bud", "ginger", "nutmeg", "cardamom", "tangerine", "vanilla", "frankincense-carteri"],
+    "safety": {
+      "dermalMaxPct": 0.1,
+      "review": "partial",
+      "source": "Cinnamon bark 0.1% on the Tisserand Institute allergenic oils topical maximums table (https://tisserandinstitute.org/safety/irritation-allergic-reactions/). Children, pregnancy and other rules not yet checked. Read Nov 2026."
+    }
+  },
+  {
+    "id": "cinnamon-leaf", "name": "Cinnamon Leaf", "latinName": "Cinnamomum zeylanicum (leaf)", "kind": "single",
+    "families": ["spicy"], "note": "middle", "intensity": 4,
+    "moods": ["cozy"],
+    "affinities": ["sweet-orange", "clove-bud", "cedarwood-virginian", "ginger", "lemon", "patchouli"],
+    "safety": {
+      "dermalMaxPct": 0.6,
+      "review": "partial",
+      "source": "Cinnamon leaf 0.6% on the Tisserand Institute allergenic oils topical maximums table (https://tisserandinstitute.org/safety/irritation-allergic-reactions/). Children, pregnancy and other rules not yet checked. Read Nov 2026."
+    }
+  },
+  {
+    "id": "clove-bud", "name": "Clove Bud", "latinName": "Syzygium aromaticum", "kind": "single",
+    "families": ["spicy"], "note": "middle", "intensity": 5,
+    "moods": ["cozy"],
+    "affinities": ["sweet-orange", "cinnamon-bark", "cinnamon-cassia", "nutmeg", "ginger", "lemon", "vanilla", "tangerine"],
+    "safety": {
+      "dermalMaxPct": 0.5,
+      "review": "partial",
+      "source": "Clove bud 0.5% on the Tisserand Institute allergenic oils topical maximums table (https://tisserandinstitute.org/safety/irritation-allergic-reactions/). Children, pregnancy and other rules not yet checked. Read Nov 2026."
+    }
+  },
+  {
+    "id": "ginger", "name": "Ginger", "latinName": "Zingiber officinale", "kind": "single",
+    "families": ["spicy"], "note": "middle", "intensity": 4,
+    "moods": ["cozy", "energize"],
+    "affinities": ["sweet-orange", "lime", "lemon", "cardamom", "cinnamon-bark", "black-pepper", "cedarwood-atlas", "lemongrass"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "cardamom", "name": "Cardamom", "latinName": "Elettaria cardamomum", "kind": "single",
+    "families": ["spicy"], "note": "middle", "intensity": 3,
+    "moods": ["cozy", "focus", "uplift"],
+    "affinities": ["sweet-orange", "cinnamon-bark", "ginger", "bergamot", "clove-bud", "vanilla", "coriander-seed"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "nutmeg", "name": "Nutmeg", "latinName": "Myristica fragrans", "kind": "single",
+    "families": ["spicy"], "note": "middle", "intensity": 4,
+    "moods": ["cozy"],
+    "affinities": ["sweet-orange", "cinnamon-bark", "clove-bud", "ginger", "cardamom", "tangerine"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "black-pepper", "name": "Black Pepper", "latinName": "Piper nigrum", "kind": "single",
+    "families": ["spicy"], "note": "middle", "intensity": 3,
+    "moods": ["energize", "cozy", "focus"],
+    "affinities": ["ginger", "lemon", "pink-grapefruit", "frankincense-serrata", "cardamom", "basil", "cedarwood-atlas"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "coriander-seed", "name": "Coriander Seed", "latinName": "Coriandrum sativum", "kind": "single",
+    "families": ["spicy", "herbaceous"], "note": "top", "intensity": 2,
+    "moods": ["calm", "uplift"],
+    "affinities": ["bergamot", "sweet-orange", "cardamom", "ginger", "clary-sage", "lavender"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "patchouli", "name": "Patchouli", "latinName": "Pogostemon cablin", "kind": "single",
+    "families": ["earthy"], "note": "base", "intensity": 5,
+    "moods": ["calm", "cozy", "sleep"],
+    "affinities": ["sweet-orange", "frankincense-carteri", "lavender", "bergamot", "ylang-ylang", "cedarwood-atlas", "sandalwood", "geranium", "vetiver", "vanilla"],
+    "safety": {
+      "phototoxic": false, "dermalMaxPct": 3,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 0.5-3% in a carrier', listed KidSafe and Pregnancy Safe (https://www.planttherapy.com/products/patchouli-essential-oil). Named as not phototoxic by the Tisserand Institute (https://tisserandinstitute.org/safety/phototoxicity/). Not named in the Plant Therapy cats guide. Read Nov 2026."
+    }
+  },
+  {
+    "id": "vetiver", "name": "Vetiver", "latinName": "Vetiveria zizanioides", "kind": "single",
+    "families": ["earthy", "woody"], "note": "base", "intensity": 5,
+    "moods": ["calm", "sleep", "focus"],
+    "affinities": ["cedarwood-atlas", "lavender", "patchouli", "sandalwood", "bergamot", "ylang-ylang", "sweet-orange"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "vanilla", "name": "Vanilla", "latinName": "Vanilla planifolia", "kind": "single",
+    "families": ["sweet"], "note": "base", "intensity": 3,
+    "moods": ["cozy", "calm", "sleep"],
+    "affinities": ["sweet-orange", "ylang-ylang", "sandalwood", "cinnamon-bark", "peppermint", "patchouli", "blood-orange", "lavender", "benzoin"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "german-chamomile", "name": "German Chamomile", "latinName": "Chamomilla recutita", "kind": "single",
+    "families": ["herbaceous", "sweet"], "note": "middle", "intensity": 4,
+    "moods": ["calm", "sleep"],
+    "affinities": ["lavender", "roman-chamomile", "geranium", "bergamot", "patchouli"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "davana", "name": "Davana", "latinName": "Artemisia pallens", "kind": "single",
+    "families": ["sweet", "herbaceous"], "note": "middle", "intensity": 4,
+    "moods": ["cozy", "calm"],
+    "affinities": ["sweet-orange", "vanilla", "cinnamon-bark", "sandalwood", "cardamom"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "tonka-bean", "name": "Tonka Bean", "latinName": "Dipteryx odorata", "kind": "single",
+    "families": ["sweet"], "note": "base", "intensity": 3,
+    "moods": ["cozy", "calm"],
+    "affinities": ["vanilla", "sweet-orange", "cinnamon-bark", "sandalwood", "lavender"],
+    "safety": {
+      "review": "none",
+      "source": "Not yet reviewed."
+    }
+  },
+  {
+    "id": "holiday-season", "name": "Holiday Season", "kind": "blend", "brand": "Plant Therapy",
+    "moods": ["cozy", "uplift"],
+    "affinities": [],
+    "components": ["sweet-orange", "lemon", "tangerine", "cinnamon-bark", "ginger", "clove-bud", "nutmeg"],
+    "componentsNote": "Full ingredient list from Plant Therapy's product page (https://www.planttherapy.com/products/holiday-season-essential-oil-blend), read Nov 2026. Confirm against your bottle label if your bottle is an older batch.",
+    "safety": {
+      "dermalMaxPct": 2, "kidsCaution": true, "kidsMinAge": 10, "pregnancyCaution": true, "catCaution": true, "oxidizesFast": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Maximum dilution of 2% for topical applications', not listed KidSafe or Pregnancy Safe (https://www.planttherapy.com/products/holiday-season-essential-oil-blend). Age 10 from Plant Therapy, 'What Does KidSafe Really Mean': 'Once a child has reached age 10 ... nearly all oils are safe for use' (https://www.planttherapy.com/blogs/blog/what-does-kidsafe-really-mean). Contains citrus oils: Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Read Nov 2026."
+    }
+  },
+  {
+    "id": "germ-fighter", "name": "Germ Fighter", "kind": "blend", "brand": "Plant Therapy",
+    "moods": ["fresh"],
+    "affinities": [],
+    "components": ["cinnamon-cassia", "lemon", "eucalyptus-globulus", "clove-bud", "rosemary-cineole"],
+    "componentsNote": "Full ingredient list from Plant Therapy's product page (https://www.planttherapy.com/products/germ-fighter-essential-oil-blend), read Nov 2026. Confirm against your bottle label if your bottle is an older batch.",
+    "safety": {
+      "dermalMaxPct": 2, "kidsCaution": true, "kidsMinAge": 10, "pregnancyCaution": true, "catCaution": true, "oxidizesFast": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 0.5-2% in a carrier', 'Do not use if pregnant or breastfeeding', not listed KidSafe (https://www.planttherapy.com/products/germ-fighter-essential-oil-blend). Age 10 from Plant Therapy, 'What Does KidSafe Really Mean': 'Once a child has reached age 10 ... nearly all oils are safe for use' (https://www.planttherapy.com/blogs/blog/what-does-kidsafe-really-mean). Contains lemon, eucalyptus and rosemary: Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Read Nov 2026."
+    }
+  },
+  {
+    "id": "balance", "name": "Balance", "kind": "blend", "brand": "Plant Therapy",
+    "moods": ["calm", "uplift"],
+    "affinities": [],
+    "components": ["palmarosa", "lavender", "petitgrain", "clary-sage", "geranium", "ylang-ylang", "neroli", "jasmine-absolute", "rose-absolute"],
+    "componentsNote": "Full ingredient list from Plant Therapy's product page for the bulk size of the same blend (https://www.planttherapy.com/products/balance-essential-oil-blend-bulk), read Nov 2026. Confirm against your bottle label if your bottle is an older batch.",
+    "safety": {
+      "dermalMaxPct": 5, "pregnancyCaution": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 2-5% in a carrier', listed KidSafe and Nursing Safe but not Pregnancy Safe (https://www.planttherapy.com/products/balance-essential-oil-blend-bulk). No oils named in the Plant Therapy cats guide. Read Nov 2026."
+    }
+  },
+  {
+    "id": "blues-buster", "name": "Blues Buster", "kind": "blend", "brand": "Plant Therapy",
+    "moods": ["uplift", "energize"],
+    "affinities": [],
+    "components": ["tangerine", "pink-grapefruit", "geranium"],
+    "componentsNote": "Full ingredient list from Plant Therapy's product page (https://www.planttherapy.com/products/blues-buster-essential-oil-blend), read Nov 2026. Confirm against your bottle label if your bottle is an older batch.",
+    "safety": {
+      "dermalMaxPct": 4, "catCaution": true, "oxidizesFast": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 2-4% in a carrier', listed KidSafe and Pregnancy Safe, no sun caution (https://www.planttherapy.com/products/blues-buster-essential-oil-blend). Contains citrus oils: Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Read Nov 2026."
+    }
+  },
+  {
+    "id": "pumpkin-spice", "name": "Pumpkin Spice", "kind": "blend", "brand": "Plant Therapy",
+    "moods": ["cozy"],
+    "affinities": [],
+    "components": ["copaiba", "blood-orange", "vanilla", "lemon", "cinnamon-bark", "cardamom", "clove-bud", "nutmeg", "ginger"],
+    "componentsNote": "Full ingredient list from Plant Therapy's product page (https://www.planttherapy.com/products/pumpkin-spice-essential-oil-blend), read Nov 2026. Confirm against your bottle label if your bottle is an older batch.",
+    "safety": {
+      "dermalMaxPct": 2, "kidsCaution": true, "kidsMinAge": 10, "pregnancyCaution": true, "catCaution": true, "oxidizesFast": true,
+      "review": "full",
+      "source": "Plant Therapy product page: 'Dilute to 1-2% in a carrier', not listed KidSafe or Pregnancy Safe (https://www.planttherapy.com/products/pumpkin-spice-essential-oil-blend). Age 10 from Plant Therapy, 'What Does KidSafe Really Mean': 'Once a child has reached age 10 ... nearly all oils are safe for use' (https://www.planttherapy.com/blogs/blog/what-does-kidsafe-really-mean). Contains citrus oils: Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Read Nov 2026."
+    }
+  },
+  {
+    "id": "apple-cider", "name": "Apple Cider", "kind": "blend", "brand": "Plant Therapy",
+    "moods": ["cozy"],
+    "affinities": [],
+    "components": ["lemon", "lime", "cinnamon-bark", "clove-bud", "cardamom", "nutmeg", "ginger", "davana", "german-chamomile", "tonka-bean"],
+    "componentsNote": "Full ingredient list from Plant Therapy's Pumpkin Harvest set page, the only place the blend is sold (https://www.planttherapy.com/products/pumpkin-harvest-essential-oil-blend-set), read Nov 2026. The blend also contains triethyl citrate, which is not a scent oil. Confirm against your bottle label if your bottle is an older batch.",
+    "safety": {
+      "dermalMaxPct": 1, "kidsCaution": true, "kidsMinAge": 10, "pregnancyCaution": true, "catCaution": true, "oxidizesFast": true,
+      "review": "full",
+      "source": "Plant Therapy Pumpkin Harvest set page: 'Apple Cider: ... Topical: Dilute to a maximum of 1% in a carrier', not listed KidSafe or Pregnancy Safe (https://www.planttherapy.com/products/pumpkin-harvest-essential-oil-blend-set). Age 10 from Plant Therapy, 'What Does KidSafe Really Mean': 'Once a child has reached age 10 ... nearly all oils are safe for use' (https://www.planttherapy.com/blogs/blog/what-does-kidsafe-really-mean). Contains citrus oils: Cat caution from Plant Therapy, 'Essential Oils and Cats' (https://www.planttherapy.com/blogs/blog/essential-oils-and-cats). Fast-oxidizing flag from the PLAN.md safety table. Read Nov 2026."
+    }
+  }
+]
