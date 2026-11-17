@@ -260,7 +260,7 @@ describe('compatibility', () => {
 })
 
 describe('starter recipes', () => {
-  it('has the nine diffuser blends from the plan', () => {
+  it('has the nine diffuser blends from the plan, plus one for each goal added later', () => {
     expect(RECIPES.map((r) => r.name)).toEqual([
       'Bright morning',
       'Focus',
@@ -271,7 +271,12 @@ describe('starter recipes', () => {
       'Stuffy head',
       'Cozy fall',
       'Mood lift',
+      'Fresh air',
+      'Blanket day',
     ])
+    for (const mood of MOODS) {
+      expect(RECIPES.some((r) => r.goal === mood), mood).toBe(true)
+    }
     for (const recipe of RECIPES) expect(recipe.method).toBe('diffuser')
   })
 

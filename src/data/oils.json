@@ -2,7 +2,7 @@
   {
     "id": "sweet-orange", "name": "Sweet Orange", "latinName": "Citrus sinensis", "kind": "single",
     "families": ["citrus"], "note": "top", "intensity": 2,
-    "moods": ["uplift", "energize", "cozy"],
+    "moods": ["uplift", "energize", "cozy", "deodorize", "sickday"],
     "affinities": ["frankincense-carteri", "peppermint", "cinnamon-cassia", "clove-bud", "lavender", "patchouli", "ylang-ylang", "cedarwood-atlas", "ginger", "vanilla"],
     "safety": {
       "phototoxic": false, "dermalMaxPct": 5, "catCaution": true, "oxidizesFast": true,
@@ -13,7 +13,7 @@
   {
     "id": "lemon", "name": "Lemon", "latinName": "Citrus limon", "kind": "single",
     "families": ["citrus"], "note": "top", "intensity": 2,
-    "moods": ["energize", "focus", "fresh", "uplift"],
+    "moods": ["energize", "focus", "fresh", "uplift", "deodorize", "sickday"],
     "affinities": ["lavender", "rosemary-cineole", "peppermint", "spearmint", "tea-tree", "eucalyptus-globulus", "frankincense-carteri", "geranium", "basil"],
     "safety": {
       "phototoxic": true, "phototoxicMaxPct": 2, "dermalMaxPct": 2, "catCaution": true, "oxidizesFast": true,
@@ -24,7 +24,7 @@
   {
     "id": "pink-grapefruit", "name": "Pink Grapefruit", "latinName": "Citrus paradisi", "kind": "single",
     "families": ["citrus"], "note": "top", "intensity": 2,
-    "moods": ["uplift", "energize", "fresh"],
+    "moods": ["uplift", "energize", "fresh", "deodorize"],
     "affinities": ["bergamot", "ylang-ylang", "lavender", "peppermint", "rosemary-cineole", "geranium", "cypress", "juniper-berry"],
     "safety": {
       "phototoxic": true, "phototoxicMaxPct": 4, "dermalMaxPct": 4, "catCaution": true, "oxidizesFast": true,
@@ -35,7 +35,7 @@
   {
     "id": "bergamot", "name": "Bergamot", "latinName": "Citrus bergamia", "kind": "single",
     "families": ["citrus"], "note": "top", "intensity": 2,
-    "moods": ["calm", "uplift", "sleep"],
+    "moods": ["calm", "uplift", "sleep", "deodorize"],
     "affinities": ["lavender", "clary-sage", "ylang-ylang", "frankincense-carteri", "pink-grapefruit", "geranium", "cedarwood-atlas", "patchouli", "sandalwood"],
     "safety": {
       "phototoxic": true, "phototoxicMaxPct": 0.4, "dermalMaxPct": 5, "catCaution": true, "oxidizesFast": true,
@@ -46,7 +46,7 @@
   {
     "id": "lime", "name": "Lime", "latinName": "Citrus aurantifolia", "kind": "single",
     "families": ["citrus"], "note": "top", "intensity": 3,
-    "moods": ["energize", "fresh", "uplift"],
+    "moods": ["energize", "fresh", "uplift", "deodorize"],
     "affinities": ["spearmint", "lemon", "ginger", "basil", "vanilla", "lemongrass", "black-pepper"],
     "safety": {
       "phototoxic": true, "phototoxicMaxPct": 0.7, "catCaution": true, "oxidizesFast": true,
@@ -90,7 +90,7 @@
   {
     "id": "lemongrass", "name": "Lemongrass", "latinName": "Cymbopogon flexuosus", "kind": "single",
     "families": ["citrus", "herbaceous"], "note": "top", "intensity": 4,
-    "moods": ["fresh", "energize"],
+    "moods": ["fresh", "energize", "deodorize"],
     "affinities": ["lime", "ginger", "basil", "geranium", "tea-tree", "cedarwood-atlas"],
     "safety": {
       "dermalMaxPct": 0.7,
@@ -101,7 +101,7 @@
   {
     "id": "citronella", "name": "Citronella", "latinName": "Cymbopogon winterianus", "kind": "single",
     "families": ["citrus", "herbaceous"], "note": "top", "intensity": 4,
-    "moods": ["fresh"],
+    "moods": ["fresh", "deodorize"],
     "affinities": ["lemongrass", "cedarwood-virginian", "lavender", "geranium", "pine"],
     "safety": {
       "review": "none",
@@ -121,7 +121,7 @@
   {
     "id": "may-chang", "name": "May Chang (Litsea)", "latinName": "Litsea cubeba", "kind": "single",
     "families": ["citrus"], "note": "top", "intensity": 3,
-    "moods": ["uplift", "fresh", "energize"],
+    "moods": ["uplift", "fresh", "energize", "deodorize"],
     "affinities": ["lemon", "sweet-orange", "lavender", "ginger", "rosemary-cineole", "basil"],
     "safety": {
       "dermalMaxPct": 0.8,
@@ -142,7 +142,7 @@
   {
     "id": "lavender", "name": "Lavender", "latinName": "Lavandula angustifolia", "kind": "single",
     "families": ["floral", "herbaceous"], "note": "middle", "intensity": 2,
-    "moods": ["calm", "sleep"],
+    "moods": ["calm", "sleep", "deodorize", "sickday"],
     "affinities": ["bergamot", "lemon", "sweet-orange", "clary-sage", "frankincense-carteri", "cedarwood-atlas", "peppermint", "rosemary-cineole", "geranium", "roman-chamomile", "tea-tree", "patchouli", "pink-grapefruit"],
     "safety": {
       "dermalMaxPct": 5,
@@ -174,7 +174,7 @@
   {
     "id": "roman-chamomile", "name": "Roman Chamomile", "latinName": "Chamaemelum nobile", "kind": "single",
     "families": ["floral", "herbaceous"], "note": "middle", "intensity": 4,
-    "moods": ["calm", "sleep"],
+    "moods": ["calm", "sleep", "sickday"],
     "affinities": ["lavender", "mandarin", "bergamot", "clary-sage", "sweet-marjoram", "cedarwood-atlas", "neroli"],
     "safety": {
       "review": "none",
@@ -215,7 +215,7 @@
   {
     "id": "lavandin", "name": "Lavandin", "latinName": "Lavandula x intermedia", "kind": "single",
     "families": ["floral", "camphoraceous"], "note": "middle", "intensity": 3,
-    "moods": ["fresh", "calm"],
+    "moods": ["fresh", "calm", "deodorize"],
     "affinities": ["rosemary-cineole", "lemon", "pine", "cypress", "eucalyptus-radiata", "clary-sage"],
     "safety": {
       "review": "none",
@@ -236,7 +236,7 @@
   {
     "id": "rosemary-cineole", "name": "Rosemary 1,8-Cineole", "latinName": "Rosmarinus officinalis ct. 1,8-cineole", "kind": "single",
     "families": ["herbaceous", "camphoraceous"], "note": "middle", "intensity": 3,
-    "moods": ["focus", "energize", "breathe"],
+    "moods": ["focus", "energize", "breathe", "deodorize", "sickday"],
     "affinities": ["lemon", "peppermint", "lavender", "eucalyptus-globulus", "sweet-orange", "basil", "cedarwood-atlas", "pink-grapefruit", "spearmint"],
     "safety": {
       "dermalMaxPct": 4, "kidsCaution": true, "kidsMinAge": 10, "catCaution": true,
@@ -257,7 +257,7 @@
   {
     "id": "sweet-marjoram", "name": "Sweet Marjoram", "latinName": "Origanum majorana", "kind": "single",
     "families": ["herbaceous"], "note": "middle", "intensity": 3,
-    "moods": ["calm", "sleep"],
+    "moods": ["calm", "sleep", "sickday"],
     "affinities": ["lavender", "roman-chamomile", "cedarwood-atlas", "bergamot", "sweet-orange", "cypress"],
     "safety": {
       "catCaution": true,
@@ -268,7 +268,7 @@
   {
     "id": "thyme-linalool", "name": "Thyme Linalool", "latinName": "Thymus vulgaris ct. linalool", "kind": "single",
     "families": ["herbaceous"], "note": "middle", "intensity": 4,
-    "moods": ["fresh", "focus"],
+    "moods": ["fresh", "focus", "deodorize", "sickday"],
     "affinities": ["lemon", "rosemary-cineole", "tea-tree", "lavender", "bergamot", "eucalyptus-radiata"],
     "safety": {
       "review": "none",
@@ -289,7 +289,7 @@
   {
     "id": "peppermint", "name": "Peppermint", "latinName": "Mentha x piperita", "kind": "single",
     "families": ["minty"], "note": "top", "intensity": 4,
-    "moods": ["energize", "focus", "breathe", "fresh"],
+    "moods": ["energize", "focus", "breathe", "fresh", "deodorize", "sickday"],
     "affinities": ["lemon", "sweet-orange", "rosemary-cineole", "eucalyptus-globulus", "lavender", "spearmint", "pink-grapefruit", "tea-tree", "vanilla"],
     "safety": {
       "dermalMaxPct": 5, "kidsCaution": true, "kidsMinAge": 10, "catCaution": true,
@@ -300,7 +300,7 @@
   {
     "id": "spearmint", "name": "Spearmint", "latinName": "Mentha spicata", "kind": "single",
     "families": ["minty"], "note": "top", "intensity": 3,
-    "moods": ["energize", "focus", "fresh", "uplift"],
+    "moods": ["energize", "focus", "fresh", "uplift", "deodorize"],
     "affinities": ["lemon", "lime", "peppermint", "rosemary-cineole", "lavender", "eucalyptus-radiata", "basil"],
     "safety": {
       "dermalMaxPct": 1.7, "catCaution": true,
@@ -311,7 +311,7 @@
   {
     "id": "eucalyptus-globulus", "name": "Eucalyptus Globulus", "latinName": "Eucalyptus globulus", "kind": "single",
     "families": ["camphoraceous"], "note": "top", "intensity": 4,
-    "moods": ["breathe", "fresh", "focus"],
+    "moods": ["breathe", "fresh", "focus", "deodorize", "sickday"],
     "affinities": ["peppermint", "lemon", "tea-tree", "rosemary-cineole", "lavender", "pine", "cedarwood-atlas"],
     "safety": {
       "dermalMaxPct": 5, "kidsCaution": true, "kidsMinAge": 10, "catCaution": true,
@@ -322,7 +322,7 @@
   {
     "id": "eucalyptus-radiata", "name": "Eucalyptus Radiata", "latinName": "Eucalyptus radiata", "kind": "single",
     "families": ["camphoraceous"], "note": "top", "intensity": 3,
-    "moods": ["breathe", "fresh"],
+    "moods": ["breathe", "fresh", "deodorize", "sickday"],
     "affinities": ["lemon", "lavender", "peppermint", "tea-tree", "siberian-fir", "spearmint", "ravintsara"],
     "safety": {
       "kidsCaution": true, "catCaution": true,
@@ -333,7 +333,7 @@
   {
     "id": "tea-tree", "name": "Tea Tree", "latinName": "Melaleuca alternifolia", "kind": "single",
     "families": ["camphoraceous"], "note": "middle", "intensity": 4,
-    "moods": ["fresh", "breathe"],
+    "moods": ["fresh", "breathe", "deodorize", "sickday"],
     "affinities": ["lemon", "lavender", "eucalyptus-globulus", "rosemary-cineole", "peppermint", "thyme-linalool", "pine"],
     "safety": {
       "dermalMaxPct": 5, "catCaution": true, "oxidizesFast": true,
@@ -344,7 +344,7 @@
   {
     "id": "ravintsara", "name": "Ravintsara", "latinName": "Cinnamomum camphora ct. 1,8-cineole", "kind": "single",
     "families": ["camphoraceous"], "note": "middle", "intensity": 3,
-    "moods": ["breathe", "fresh"],
+    "moods": ["breathe", "fresh", "sickday"],
     "affinities": ["lemon", "eucalyptus-radiata", "tea-tree", "frankincense-carteri", "lavender", "black-spruce"],
     "safety": {
       "review": "none",
@@ -354,7 +354,7 @@
   {
     "id": "cedarwood-atlas", "name": "Cedarwood Atlas", "latinName": "Cedrus atlantica", "kind": "single",
     "families": ["woody"], "note": "base", "intensity": 3,
-    "moods": ["calm", "sleep", "cozy", "focus"],
+    "moods": ["calm", "sleep", "cozy", "focus", "deodorize", "sickday"],
     "affinities": ["lavender", "bergamot", "sweet-orange", "frankincense-carteri", "clary-sage", "cypress", "vetiver", "patchouli", "rosemary-cineole"],
     "safety": {
       "catCaution": true,
@@ -386,7 +386,7 @@
   {
     "id": "cypress", "name": "Cypress", "latinName": "Cupressus sempervirens", "kind": "single",
     "families": ["woody"], "note": "middle", "intensity": 3,
-    "moods": ["fresh", "focus", "breathe"],
+    "moods": ["fresh", "focus", "breathe", "deodorize"],
     "affinities": ["juniper-berry", "pink-grapefruit", "lemon", "lavender", "cedarwood-atlas", "pine", "bergamot"],
     "safety": {
       "catCaution": true,
@@ -397,7 +397,7 @@
   {
     "id": "juniper-berry", "name": "Juniper Berry", "latinName": "Juniperus communis", "kind": "single",
     "families": ["woody", "herbaceous"], "note": "middle", "intensity": 3,
-    "moods": ["fresh", "focus", "calm"],
+    "moods": ["fresh", "focus", "calm", "deodorize"],
     "affinities": ["cypress", "pink-grapefruit", "lemon", "rosemary-cineole", "cedarwood-virginian", "bergamot", "frankincense-serrata"],
     "safety": {
       "catCaution": true,
@@ -408,7 +408,7 @@
   {
     "id": "siberian-fir", "name": "Siberian Fir", "latinName": "Abies sibirica", "kind": "single",
     "families": ["woody", "camphoraceous"], "note": "middle", "intensity": 3,
-    "moods": ["fresh", "breathe", "cozy"],
+    "moods": ["fresh", "breathe", "cozy", "deodorize", "sickday"],
     "affinities": ["sweet-orange", "pine", "cedarwood-atlas", "frankincense-carteri", "eucalyptus-radiata", "lemon", "cinnamon-bark"],
     "safety": {
       "catCaution": true,
@@ -419,7 +419,7 @@
   {
     "id": "balsam-fir", "name": "Balsam Fir", "latinName": "Abies balsamea", "kind": "single",
     "families": ["woody", "resinous"], "note": "middle", "intensity": 3,
-    "moods": ["cozy", "fresh", "breathe"],
+    "moods": ["cozy", "fresh", "breathe", "sickday"],
     "affinities": ["sweet-orange", "cinnamon-bark", "clove-bud", "frankincense-carteri", "cedarwood-atlas", "black-spruce"],
     "safety": {
       "catCaution": true,
@@ -430,7 +430,7 @@
   {
     "id": "pine", "name": "Pine (Scots)", "latinName": "Pinus sylvestris", "kind": "single",
     "families": ["woody", "camphoraceous"], "note": "middle", "intensity": 3,
-    "moods": ["fresh", "breathe", "energize"],
+    "moods": ["fresh", "breathe", "energize", "deodorize", "sickday"],
     "affinities": ["eucalyptus-globulus", "cedarwood-atlas", "lemon", "rosemary-cineole", "cypress", "siberian-fir", "juniper-berry"],
     "safety": {
       "catCaution": true,
@@ -441,7 +441,7 @@
   {
     "id": "black-spruce", "name": "Black Spruce", "latinName": "Picea mariana", "kind": "single",
     "families": ["woody"], "note": "middle", "intensity": 3,
-    "moods": ["calm", "breathe", "focus"],
+    "moods": ["calm", "breathe", "focus", "sickday"],
     "affinities": ["frankincense-carteri", "cedarwood-atlas", "sweet-orange", "pine", "lavender", "balsam-fir"],
     "safety": {
       "catCaution": true,
@@ -462,7 +462,7 @@
   {
     "id": "frankincense-carteri", "name": "Frankincense Carteri", "latinName": "Boswellia carterii", "kind": "single",
     "families": ["resinous"], "note": "base", "intensity": 2,
-    "moods": ["calm", "focus", "sleep"],
+    "moods": ["calm", "focus", "sleep", "sickday"],
     "affinities": ["sweet-orange", "lavender", "bergamot", "lemon", "myrrh", "sandalwood", "cedarwood-atlas", "patchouli", "cinnamon-cassia", "clary-sage"],
     "safety": {
       "dermalMaxPct": 3,
@@ -473,7 +473,7 @@
   {
     "id": "frankincense-serrata", "name": "Frankincense Serrata", "latinName": "Boswellia serrata", "kind": "single",
     "families": ["resinous"], "note": "base", "intensity": 2,
-    "moods": ["calm", "focus"],
+    "moods": ["calm", "focus", "sickday"],
     "affinities": ["sweet-orange", "lemon", "lavender", "myrrh", "cedarwood-atlas", "juniper-berry", "black-pepper"],
     "safety": {
       "review": "none",
@@ -557,7 +557,7 @@
   {
     "id": "ginger", "name": "Ginger", "latinName": "Zingiber officinale", "kind": "single",
     "families": ["spicy"], "note": "middle", "intensity": 4,
-    "moods": ["cozy", "energize"],
+    "moods": ["cozy", "energize", "sickday"],
     "affinities": ["sweet-orange", "lime", "lemon", "cardamom", "cinnamon-bark", "black-pepper", "cedarwood-atlas", "lemongrass"],
     "safety": {
       "review": "none",
@@ -638,7 +638,7 @@
   {
     "id": "german-chamomile", "name": "German Chamomile", "latinName": "Chamomilla recutita", "kind": "single",
     "families": ["herbaceous", "sweet"], "note": "middle", "intensity": 4,
-    "moods": ["calm", "sleep"],
+    "moods": ["calm", "sleep", "sickday"],
     "affinities": ["lavender", "roman-chamomile", "geranium", "bergamot", "patchouli"],
     "safety": {
       "review": "none",
@@ -679,7 +679,7 @@
   },
   {
     "id": "germ-fighter", "name": "Germ Fighter", "kind": "blend", "brand": "Plant Therapy",
-    "moods": ["fresh"],
+    "moods": ["fresh", "deodorize", "sickday"],
     "affinities": [],
     "components": ["cinnamon-cassia", "lemon", "eucalyptus-globulus", "clove-bud", "rosemary-cineole"],
     "componentsNote": "Full ingredient list from Plant Therapy's product page (https://www.planttherapy.com/products/germ-fighter-essential-oil-blend), read Nov 2026. Confirm against your bottle label if your bottle is an older batch.",

@@ -28,7 +28,16 @@ GitHub builds and publishes the app for you each time you upload files. You do t
 
 ### Updating the app later
 
-Upload the changed files to the same repository (**Add file > Upload files**) and commit. GitHub rebuilds and republishes in a minute or two. If a test fails, the publish stops and the previous version stays live; the Actions tab shows what failed.
+The project can work out which files GitHub is missing and put just those in one folder for you:
+
+1. In the project folder, run `npm run upload-folder`.
+2. It creates a folder called `ScentMath-upload` next to the project folder, holding only the new and changed files, in the right subfolders. It also prints the list.
+3. Open `ScentMath-upload`, select everything inside it, and drag it onto the repository's upload page (**Add file > Upload files**).
+4. Click **Commit changes**.
+
+GitHub rebuilds and republishes in a minute or two. If a test fails, the publish stops and the previous version stays live; the Actions tab shows what failed.
+
+The folder is rebuilt from scratch each time, so it never holds stale files. It leaves out `node_modules`, `dist` and personal notes.
 
 ### Using it on your phone
 

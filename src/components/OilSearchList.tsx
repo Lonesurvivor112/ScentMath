@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react'
 import { FAMILY_LABELS } from '../data/labels'
-import { POPULAR_OIL_IDS, searchOils } from '../engine/catalog'
+import { POPULAR_OIL_IDS, ingredientsLine, searchOils } from '../engine/catalog'
 import type { OilIndex, ResolvedOil } from '../engine/resolve'
 import type { ShelfRow } from '../store/db'
 import { capBackground } from './OilCap'
+import { ScentGuideButton } from './ScentGuide'
 import { PlusIcon, SearchIcon } from './icons'
 
 interface OilSearchListProps {
@@ -79,8 +80,10 @@ export function OilSearchList({
         />
       </label>
 
+      <ScentGuideButton label="What do words like herbaceous mean?" />
+
       {showPopular && trimmed.length === 0 && (
-        <div className="mt-3">
+        <div className="mt-1">
           <p className="mb-1.5 text-xs font-semibold tracking-wide text-stone-600 uppercase">
             Quick add
           </p>
@@ -109,11 +112,12 @@ export function OilSearchList({
         </div>
       )}
 
-      <ul className="mt-3 divide-y divide-stone-200" aria-label="Oils">
+      <ul className="mt-1 divide-y divide-stone-200" aria-label="Oils">
         {results.map((oil) => {
           const status = shelfStatus(oil.id, shelf)
           const done = doneCounts?.get(oil.id) ?? 0
           const families = oil.families.map((f) => FAMILY_LABELS[f]).join(', ')
+          const ingredients = ingredientsLine(oil, index, 5)
           return (
             <li key={oil.id} className="flex items-center gap-3 py-2">
               <span
@@ -128,6 +132,7 @@ export function OilSearchList({
                     .filter(Boolean)
                     .join(' · ')}
                 </p>
+                {ingredients && <p className="text-xs text-stone-600">Made of {ingredients}</p>}
               </div>
               <button
                 type="button"

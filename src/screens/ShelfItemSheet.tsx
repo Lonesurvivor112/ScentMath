@@ -3,8 +3,10 @@ import { Sheet } from '../components/Sheet'
 import { SizePicker } from '../components/SizePicker'
 import { GetMoreIcon, MinusIcon, PlusIcon, RestockIcon, TrashIcon } from '../components/icons'
 import { FAMILY_LABELS, NOTE_LABELS } from '../data/labels'
+import { ingredientNames } from '../engine/catalog'
 import type { ResolvedOil } from '../engine/resolve'
 import type { ShelfRow } from '../store/db'
+import { useOilIndex } from '../store/oils'
 import { useShelf } from '../store/shelf'
 
 interface ShelfItemSheetProps {
@@ -25,6 +27,8 @@ export function ShelfItemSheet({ row, oil, onClose, onRemove }: ShelfItemSheetPr
   const [brand, setBrand] = useState(row.brand ?? '')
   const [notes, setNotes] = useState(row.notes ?? '')
 
+  const oils = useOilIndex()
+  const ingredients = oil ? ingredientNames(oil, oils) : []
   const name = oil?.name ?? row.oilId
   const subtitle = oil
     ? [
@@ -45,6 +49,16 @@ export function ShelfItemSheet({ row, oil, onClose, onRemove }: ShelfItemSheetPr
           <p className="rounded-xl bg-amber-50 px-3 py-2 text-sm font-medium text-amber-950 ring-1 ring-amber-200">
             Empty. On your Get more list.
           </p>
+        )}
+
+        {ingredients.length > 0 && (
+          <section aria-labelledby="made-of-heading" className="rounded-xl bg-white p-3 ring-1 ring-stone-200">
+            <h3 id="made-of-heading" className="text-sm font-semibold text-stone-900">
+              What's in this blend
+            </h3>
+            <p className="mt-1 text-sm text-stone-800">{ingredients.join(', ')}</p>
+            {oil?.componentsNote && <p className="mt-1.5 text-xs text-stone-500">{oil.componentsNote}</p>}
+          </section>
         )}
 
         <div className="flex items-center justify-between">

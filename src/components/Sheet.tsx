@@ -10,19 +10,27 @@ interface SheetProps {
   children: ReactNode
 }
 
+/** Open sheets, newest last, so Escape only closes the one on top. */
+const openSheets: string[] = []
+
 /** A modal panel that rises from the bottom of the screen. */
 export function Sheet({ title, subtitle, onClose, full, children }: SheetProps) {
   const titleId = useId()
   const panel = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    openSheets.push(titleId)
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
+      if (event.key === 'Escape' && openSheets[openSheets.length - 1] === titleId) onClose()
     }
     document.addEventListener('keydown', onKey)
     panel.current?.focus()
-    return () => document.removeEventListener('keydown', onKey)
-  }, [onClose])
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      const at = openSheets.lastIndexOf(titleId)
+      if (at >= 0) openSheets.splice(at, 1)
+    }
+  }, [onClose, titleId])
 
   return (
     <div

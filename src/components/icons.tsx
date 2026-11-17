@@ -71,6 +71,21 @@ export const PencilIcon = (p: IconProps) => (
   </Icon>
 )
 
+export const DiceIcon = (p: IconProps) => (
+  <Icon {...p}>
+    <rect x="4" y="4" width="16" height="16" rx="3" />
+    <path d="M8.5 8.5h.01M15.5 8.5h.01M12 12h.01M8.5 15.5h.01M15.5 15.5h.01" strokeWidth={2.6} />
+  </Icon>
+)
+
+export const InfoIcon = (p: IconProps) => (
+  <Icon {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 11v6" />
+    <path d="M12 7.5h.01" strokeWidth={2.6} />
+  </Icon>
+)
+
 export const MinusIcon = (p: IconProps) => (
   <Icon {...p}>
     <path d="M5 12h14" />

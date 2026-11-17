@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { OilSearchList } from '../components/OilSearchList'
+import { ScentGuideButton } from '../components/ScentGuide'
 import { SizePicker } from '../components/SizePicker'
 import { FAMILY_COLORS, FAMILY_LABELS, NOTE_LABELS } from '../data/labels'
 import { FAMILIES, NOTES, type Family, type Intensity, type Note } from '../data/schema'
@@ -180,7 +181,10 @@ export function AddOilCreate({ initialName = '', barcode, onCreated }: AddOilCre
         <legend className="text-sm font-medium text-stone-700">
           Scent family{kind === 'blend' ? ' (optional if you listed the oils)' : ''}
         </legend>
-        <p className="mb-2 text-xs text-stone-600">Pick one or two.</p>
+        <div className="mb-1 flex flex-wrap items-center justify-between gap-x-3">
+          <p className="text-xs text-stone-600">Pick one or two.</p>
+          <ScentGuideButton label="What do these mean?" />
+        </div>
         <div className="flex flex-wrap gap-2">
           {FAMILIES.map((family) => {
             const on = families.includes(family)

@@ -8,7 +8,8 @@ import { PairList } from '../components/PairList'
 import { SafetyAbout, SafetyBanner } from '../components/SafetyBanner'
 import { Sheet } from '../components/Sheet'
 import { Toast } from '../components/Toast'
-import { CloseIcon, PlusIcon } from '../components/icons'
+import { ScentGuideButton } from '../components/ScentGuide'
+import { CloseIcon, DiceIcon, PlusIcon } from '../components/icons'
 import { COMPAT } from '../data'
 import { METHOD_LABELS, MOOD_LABELS } from '../data/labels'
 import { METHODS, type Method } from '../data/schema'
@@ -21,12 +22,14 @@ import {
   isManual,
   removeOil,
   resetToSuggested,
+  rollDraft,
   setDilution,
   setMethod,
   setVolume,
   stepDrops,
 } from '../engine/builder'
 import { isSkinMethod } from '../engine/calculator'
+import { ingredientsLine } from '../engine/catalog'
 import { describeSize } from '../engine/ideas'
 import type { ResolvedOil } from '../engine/resolve'
 import { ownedOilIds } from '../engine/shelf'
@@ -53,6 +56,12 @@ const trim = (n: number): string => String(Number(n.toFixed(2)))
 
 type Panel = 'settings' | 'about' | 'add' | null
 
+interface ToastState {
+  message: string
+  actionLabel?: string
+  onAction?: () => void
+}
+
 /** The Blend Builder: pick a method, add oils, and see drops, balance and safety. */
 export function Build() {
   const draft = useBuilder((state) => state.draft)
@@ -68,11 +77,11 @@ export function Build() {
   const oils = useOilIndex()
 
   const [panel, setPanel] = useState<Panel>(null)
-  const [toast, setToast] = useState<string | null>(null)
+  const [toast, setToast] = useState<ToastState | null>(null)
 
   useEffect(() => {
     if (!toast) return
-    const timer = window.setTimeout(() => setToast(null), 4000)
+    const timer = window.setTimeout(() => setToast(null), 6000)
     return () => window.clearTimeout(timer)
   }, [toast])
 
@@ -110,7 +119,34 @@ export function Build() {
     const blend = draftToBlend(draft, id, createdAt)
     await saveBlend(blend)
     change({ ...draft, blendId: id, name: blend.name })
-    setToast(asNew || !saved ? `Saved "${blend.name}"` : `Updated "${blend.name}"`)
+    setToast({
+      message: asNew || !saved ? `Saved "${blend.name}"` : `Updated "${blend.name}"`,
+      actionLabel: 'View saved',
+      onAction: () => go('saved'),
+    })
+  }
+
+  /** The dice button: a random blend from the shelf, built around the goal if one is picked. */
+  const roll = () => {
+    const before = draft
+    const rolled = rollDraft(draft, { profile, oils, compat: COMPAT, owned })
+    if (rolled === draft) {
+      setToast({ message: 'Add some oils to your shelf to roll a blend' })
+      return
+    }
+    change(rolled)
+    setToast(
+      before.items.length > 0
+        ? {
+            message: 'Rolled a new blend',
+            actionLabel: 'Undo',
+            onAction: () => {
+              change(before)
+              setToast(null)
+            },
+          }
+        : { message: draft.mood ? `Rolled a ${MOOD_LABELS[draft.mood]} blend` : 'Rolled a random blend' },
+    )
   }
 
   if (!ready || !shelfReady) {
@@ -212,6 +248,15 @@ export function Build() {
           Goal <span className="font-normal text-stone-500">(optional, steers the suggestions)</span>
         </p>
         <MoodChips label="Goal" value={draft.mood} onChange={(mood) => change({ ...draft, mood })} />
+        <button
+          type="button"
+          onClick={roll}
+          disabled={owned.size === 0}
+          className="mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-white text-sm font-semibold text-brand-900 shadow-sm ring-1 ring-brand-600 active:bg-brand-50 disabled:opacity-50"
+        >
+          <DiceIcon />
+          {draft.mood ? `Roll a random ${MOOD_LABELS[draft.mood]} blend` : 'Roll a random blend'}
+        </button>
       </div>
 
       {/* The blend */}
@@ -241,7 +286,7 @@ export function Build() {
         {empty && owned.size > 0 && (
           <div className="mt-2">
             <p className="text-sm text-stone-600">
-              {draft.mood ? `Tap a first oil. The ones that fit ${MOOD_LABELS[draft.mood]} are listed first.` : 'Tap a first oil to start.'}
+              {draft.mood ? `Tap a first oil. The ones that fit ${MOOD_LABELS[draft.mood]} are listed first.` : 'Tap a first oil to start, or roll the dice above.'}
             </p>
             <ul aria-label="Oils on your shelf" className="mt-3 flex flex-wrap gap-2">
               {starters.map((oil) => (
@@ -268,6 +313,7 @@ export function Build() {
                 const oil = oils.get(line.oilId)
                 const name = oil?.name ?? line.oilId
                 const atMax = line.maxDrops !== undefined && line.drops >= line.maxDrops
+                const ingredients = oil ? ingredientsLine(oil, oils, 5) : null
                 const info = [
                   !owned.has(line.oilId) ? 'Not on your shelf' : null,
                   skin && line.pct !== undefined && line.drops > 0 ? `${trim(line.pct)}% of the blend` : null,
@@ -298,6 +344,7 @@ export function Build() {
                         <CloseIcon size={18} />
                       </button>
                     </div>
+                    {ingredients && <p className="mt-0.5 pl-10 text-xs text-stone-600">Made of {ingredients}</p>}
                   </li>
                 )
               })}
@@ -335,10 +382,17 @@ export function Build() {
 
       {!empty && (
         <section aria-labelledby="pairs-heading" className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-stone-200">
-          <h2 id="pairs-heading" className="text-sm font-semibold text-stone-900">
-            Pairs well
-          </h2>
-          <p className="mb-1 text-xs text-stone-500">From your shelf, best match first</p>
+          <div className="flex items-start justify-between gap-2">
+            <div>
+              <h2 id="pairs-heading" className="text-sm font-semibold text-stone-900">
+                Pairs well
+              </h2>
+              <p className="mb-1 text-xs text-stone-500">From your shelf, best match first</p>
+            </div>
+            <div className="-mt-2 -mr-2">
+              <ScentGuideButton />
+            </div>
+          </div>
           <PairList suggestions={view.suggestions} oils={oils} onAdd={add} />
           <button
             type="button"
@@ -404,7 +458,7 @@ export function Build() {
           />
         </Sheet>
       )}
-      {toast && <Toast message={toast} actionLabel="View saved" onAction={() => go('saved')} />}
+      {toast && <Toast message={toast.message} actionLabel={toast.actionLabel} onAction={toast.onAction} />}
     </section>
   )
 }

@@ -5,6 +5,7 @@ import { Sheet } from '../components/Sheet'
 import { MOOD_LABELS } from '../data/labels'
 import type { Blend } from '../data/schema'
 import { blendDrops, blendToDraft } from '../engine/builder'
+import { ingredientsLine } from '../engine/catalog'
 import { blendText, describeSize } from '../engine/ideas'
 import { checkBlend } from '../engine/safety'
 import { useBlends } from '../store/blends'
@@ -36,6 +37,10 @@ export function BlendDetail({ blend, onClose, onEdit, onDelete, onMessage }: Ble
   const [about, setAbout] = useState(false)
 
   const nameOf = (id: string) => oils.get(id)?.name ?? id
+  const madeOf = (id: string) => {
+    const oil = oils.get(id)
+    return oil ? ingredientsLine(oil, oils) : null
+  }
   const calc = useMemo(() => blendDrops(blend, profile.dropsPerMl, oils), [blend, profile.dropsPerMl, oils])
   const issues = useMemo(
     () =>
@@ -91,7 +96,10 @@ export function BlendDetail({ blend, onClose, onEdit, onDelete, onMessage }: Ble
             {calc.lines.map((line) => (
               <li key={line.oilId} className="flex items-center gap-3 text-sm text-stone-900">
                 <span aria-hidden="true" className="h-7 w-7 shrink-0 rounded-full ring-1 ring-black/10" style={{ background: capBackground(oils.get(line.oilId)?.families ?? []) }} />
-                <span className="flex-1 font-medium">{nameOf(line.oilId)}</span>
+                <span className="min-w-0 flex-1 font-medium">
+                  {nameOf(line.oilId)}
+                  {madeOf(line.oilId) && <span className="block text-xs font-normal text-stone-500">Made of {madeOf(line.oilId)}</span>}
+                </span>
                 <span className="tabular-nums">
                   <span className="text-base font-semibold">{line.drops}</span> {line.drops === 1 ? 'drop' : 'drops'}
                 </span>

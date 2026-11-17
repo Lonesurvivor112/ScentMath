@@ -28,6 +28,8 @@ export const MOODS = [
   'fresh',
   'cozy',
   'breathe',
+  'deodorize',
+  'sickday',
 ] as const
 
 export const METHODS = ['diffuser', 'roller', 'massage'] as const

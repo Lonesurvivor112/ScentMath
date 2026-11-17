@@ -16,6 +16,7 @@ import {
   recipeToDraft,
   removeOil,
   resetToSuggested,
+  rollDraft,
   setDilution,
   setMethod,
   setVolume,
@@ -24,7 +25,7 @@ import {
   type DraftContext,
 } from './builder'
 import { ownedOilIds } from './shelf'
-import { compat, oil } from './testing'
+import { compat, oil, seededRandom } from './testing'
 
 const ctx = (profile: Profile = DEFAULT_PROFILE): DraftContext => ({
   profile,
@@ -253,6 +254,49 @@ describe('changing method, size and dilution', () => {
   })
 })
 
+describe('the dice button', () => {
+  it('replaces the oils and keeps the method, size, dilution and goal', () => {
+    let draft = addOil(newDraft(DEFAULT_PROFILE, 'massage'), oil('lavender'))
+    draft = { ...setDilution(draft, 3), mood: 'calm', name: 'Old name', blendId: 'b9', notes: 'x', rating: 5 }
+    const rolled = rollDraft(draft, ctx(), seededRandom(5))
+    expect(rolled.method).toBe('massage')
+    expect(rolled.volumeMl).toBe(30)
+    expect(rolled.dilutionPct).toBe(3)
+    expect(rolled.mood).toBe('calm')
+    expect(rolled.items.length).toBeGreaterThanOrEqual(2)
+    expect(oil(rolled.items[0].oilId).moods).toContain('calm')
+    // It is a new blend, not an edit of the saved one.
+    expect(rolled.blendId).toBeUndefined()
+    expect(rolled.name).toBe('')
+    expect(rolled.notes).toBeUndefined()
+    expect(rolled.rating).toBeUndefined()
+    expect(isManual(rolled)).toBe(false)
+  })
+
+  it('goes back to suggested drops after hand-set ones', () => {
+    let draft = mainFlow()
+    draft = stepDrops(draft, 'peppermint', 3, evaluateDraft(draft, ctx()).calc.lines)
+    const rolled = rollDraft(draft, ctx(), seededRandom(2))
+    expect(isManual(rolled)).toBe(false)
+    expect(drops(rolled).reduce((a, b) => a + b, 0)).toBe(6)
+  })
+
+  it('rolls something different from the blend it replaces', () => {
+    let draft = newDraft(DEFAULT_PROFILE)
+    for (let i = 0; i < 12; i++) {
+      const next = rollDraft(draft, ctx(), seededRandom(i + 1))
+      const key = (d: Draft) => d.items.map((item) => item.oilId).sort().join('+')
+      expect(key(next)).not.toBe(key(draft))
+      draft = next
+    }
+  })
+
+  it('leaves the draft alone when the shelf is empty', () => {
+    const draft = mainFlow()
+    expect(rollDraft(draft, { ...ctx(), owned: new Set() }, seededRandom(1))).toBe(draft)
+  })
+})
+
 describe('saving and reopening', () => {
   it('saves a draft as a valid blend', () => {
     const blend = draftToBlend({ ...mainFlow(), name: '  Bright start ', mood: 'energize' }, 'b1', '2026-11-16T10:00:00.000Z')
@@ -302,6 +346,8 @@ describe('opening recipes', () => {
       'stuffy-head': [3, 2, 1],
       'cozy-fall': [3, 2, 1],
       'mood-lift': [3, 2, 1],
+      'fresh-air': [3, 2, 1],
+      'blanket-day': [3, 2, 1],
     }
     expect(RECIPES).toHaveLength(Object.keys(expected).length)
     for (const recipe of RECIPES) {

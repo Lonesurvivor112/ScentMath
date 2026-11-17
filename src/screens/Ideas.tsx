@@ -5,6 +5,7 @@ import { COMPAT, RECIPES } from '../data'
 import { MOOD_LABELS } from '../data/labels'
 import type { Mood } from '../data/schema'
 import { evaluateDraft, recipeToDraft } from '../engine/builder'
+import { ingredientsLine } from '../engine/catalog'
 import { generateIdeas, matchRecipes, type RecipeMatch } from '../engine/ideas'
 import type { OilIndex } from '../engine/resolve'
 import { worstSeverity } from '../engine/safety'
@@ -28,6 +29,10 @@ interface IdeaCardProps {
 function IdeaCard({ match, oils, drops, caution, onOpen }: IdeaCardProps) {
   const { recipe, missing, harmony } = match
   const nameOf = (id: string) => oils.get(id)?.name ?? id
+  const madeOf = (id: string) => {
+    const oil = oils.get(id)
+    return oil ? ingredientsLine(oil, oils, 5) : null
+  }
   return (
     <li>
       <button
@@ -58,8 +63,11 @@ function IdeaCard({ match, oils, drops, caution, onOpen }: IdeaCardProps) {
                   className={`h-5 w-5 shrink-0 rounded-full ring-1 ring-black/10 ${isMissing ? 'opacity-35 grayscale' : ''}`}
                   style={{ background: capBackground(oils.get(item.oilId)?.families ?? []) }}
                 />
-                <span className="w-5 text-right font-semibold tabular-nums">{drops.get(item.oilId) ?? item.parts}</span>
-                <span className={isMissing ? 'text-stone-500' : ''}>{nameOf(item.oilId)}</span>
+                <span className="w-5 shrink-0 text-right font-semibold tabular-nums">{drops.get(item.oilId) ?? item.parts}</span>
+                <span className={`min-w-0 ${isMissing ? 'text-stone-500' : ''}`}>
+                  {nameOf(item.oilId)}
+                  {madeOf(item.oilId) && <span className="block text-xs text-stone-500">Made of {madeOf(item.oilId)}</span>}
+                </span>
                 {isMissing && (
                   <span className="rounded bg-amber-100 px-1.5 py-0.5 text-[11px] font-semibold text-amber-900">Need this</span>
                 )}

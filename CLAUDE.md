@@ -20,6 +20,7 @@ Mobile-first essential oil blending web app. `PLAN.md` is the full spec. Read it
 - `npm test` — run all Vitest tests once
 - `npm run typecheck` — TypeScript, no emit
 - `npm run build` — typecheck, tests, then production build
+- `npm run upload-folder` — copies the files GitHub doesn't have yet to `../ScentMath-upload`. Run it at the end of every change so Nick can drag that folder's contents onto GitHub.
 
 ## Layout
 
@@ -30,6 +31,9 @@ Mobile-first essential oil blending web app. `PLAN.md` is the full spec. Read it
 - `src/screens`, `src/components` — React UI
 
 ## Notes
+
+- Hosting: GitHub Pages, repository `Lonesurvivor112/ScentMath`, live at https://lonesurvivor112.github.io/ScentMath/. Nick uploads files through the GitHub website (no git on this PC), and a workflow builds and publishes them.
+- Goal names must not claim a health effect. "Sick-day comfort" names the occasion; don't rename it to anything like "cold relief".
 
 - Oils marked `empty` stay on the shelf but are not owned. Use `ownedOilIds()` from `engine/shelf.ts` for suggestions and recipes, never the raw shelf.
 - Use `useOilIndex()` from `store/oils.ts` in screens, not `OIL_INDEX`, so the user's own oils are included.

@@ -14,6 +14,18 @@ export const NO_HOUSEHOLD: HouseholdProfile = {
   dogs: false,
 }
 
+/** A repeatable stand-in for Math.random, so tests of random features are stable. */
+export function seededRandom(seed: number): () => number {
+  let state = seed >>> 0
+  return () => {
+    state = (state + 0x6d2b79f5) >>> 0
+    let t = state
+    t = Math.imul(t ^ (t >>> 15), t | 1)
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
 /** Looks up a library oil and fails loudly on a typo. */
 export function oil(id: string, index: OilIndex = OIL_INDEX): ResolvedOil {
   const found = index.get(id)

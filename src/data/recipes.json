@@ -97,5 +97,27 @@
       { "oilId": "lavender", "parts": 2 },
       { "oilId": "blues-buster", "parts": 1 }
     ]
+  },
+  {
+    "id": "fresh-air",
+    "name": "Fresh air",
+    "goal": "deodorize",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "lemon", "parts": 3 },
+      { "oilId": "lavender", "parts": 2 },
+      { "oilId": "tea-tree", "parts": 1 }
+    ]
+  },
+  {
+    "id": "blanket-day",
+    "name": "Blanket day",
+    "goal": "sickday",
+    "method": "diffuser",
+    "items": [
+      { "oilId": "lavender", "parts": 3 },
+      { "oilId": "frankincense-carteri", "parts": 2 },
+      { "oilId": "eucalyptus-globulus", "parts": 1 }
+    ]
   }
 ]

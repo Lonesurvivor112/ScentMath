@@ -1,5 +1,5 @@
 import type { Family, Intensity, Mood, Note, Oil } from '../data/schema'
-import type { ResolvedOil } from './resolve'
+import type { OilIndex, ResolvedOil } from './resolve'
 
 /**
  * Finding oils in the library and making new ones. Used by the "Add oil"
@@ -62,6 +62,28 @@ export function searchOils(
 
   ranked.sort((a, b) => a.rank - b.rank || a.oil.name.localeCompare(b.oil.name))
   return ranked.slice(0, Math.max(0, limit)).map((entry) => entry.oil)
+}
+
+/** The names of the oils inside a blend, in label order. Empty for a single oil. */
+export function ingredientNames(oil: ResolvedOil, oils: OilIndex): string[] {
+  return oil.components.map((id) => oils.get(id)?.name ?? id)
+}
+
+/**
+ * What a blend is made of, as one line: "Tangerine, Pink Grapefruit,
+ * Geranium". With `max`, a long list is cut short: "Palmarosa, Lavender,
+ * Petitgrain, Clary Sage +5 more". Null for a single oil or a blend with no
+ * ingredients listed.
+ */
+export function ingredientsLine(
+  oil: ResolvedOil,
+  oils: OilIndex,
+  max = Number.POSITIVE_INFINITY,
+): string | null {
+  const names = ingredientNames(oil, oils)
+  if (names.length === 0) return null
+  if (names.length <= max) return names.join(', ')
+  return `${names.slice(0, max).join(', ')} +${names.length - max} more`
 }
 
 /** A lowercase-kebab-case slug, or "oil" if nothing usable is left. */

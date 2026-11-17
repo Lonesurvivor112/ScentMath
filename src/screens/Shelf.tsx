@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { OilCap, capBackground } from '../components/OilCap'
+import { ScentGuideButton } from '../components/ScentGuide'
 import { Toast } from '../components/Toast'
 import { PlusIcon, RestockIcon, TrashIcon } from '../components/icons'
 import { FAMILY_COLORS, FAMILY_LABELS } from '../data/labels'
@@ -242,6 +243,12 @@ export function Shelf() {
               </li>
             ))}
           </ul>
+
+          {active !== 'get-more' && (
+            <div className="-mt-3 mb-1">
+              <ScentGuideButton label="What do these scent words mean?" />
+            </div>
+          )}
 
           {editing && active !== 'get-more' && (
             <p className="mb-3 rounded-lg bg-stone-100 px-3 py-2 text-xs text-stone-700">

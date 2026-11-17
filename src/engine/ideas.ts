@@ -1,10 +1,10 @@
 import { METHOD_LABELS } from '../data/labels'
 import type { BlendItem, Method, Mood, Profile, Recipe } from '../data/schema'
-import { defaultParts, isSkinMethod, type DropLine } from './calculator'
+import { defaultParts, isSkinMethod, topicalTotalDrops, type DropLine } from './calculator'
 import { harmonyScore, type CompatFn } from './harmony'
 import type { OilIndex } from './resolve'
 import { isHiddenForProfile, type HouseholdProfile } from './safety'
-import { suggestOils } from './scoring'
+import { breaksSafetyRule, suggestOils } from './scoring'
 
 /**
  * "What can I make?": which recipes the shelf can make now, which are one
@@ -139,6 +139,101 @@ export function generateIdeas(mood: Mood, ctx: IdeaContext, limit = 3): RecipeMa
   return ideas
     .sort((a, b) => (b.harmony ?? -1) - (a.harmony ?? -1) || a.recipe.name.localeCompare(b.recipe.name))
     .slice(0, Math.max(0, limit))
+}
+
+export interface RollRequest {
+  method: Method
+  volumeMl: number
+  /** Needed for roller and massage oil. */
+  dilutionPct?: number
+  /** With a goal, the blend starts from an oil that fits it. */
+  mood?: Mood
+  /** The oils in the blend being replaced, so a roll never repeats it. */
+  avoid?: readonly string[]
+}
+
+export interface RollContext {
+  owned: ReadonlySet<string>
+  oils: OilIndex
+  compat: CompatFn
+  profile: HouseholdProfile
+  dropsPerMl: number
+}
+
+/** A roll picks each next oil at random from this many of the best fits. */
+const ROLL_CHOICES = 5
+const ROLL_MAX_OILS = 4
+const ROLL_ATTEMPTS = 6
+
+/**
+ * Rolls a random blend from the shelf. The first oil is picked at random
+ * (from the oils that fit the goal, if there is one). Each oil after that is
+ * picked at random from the best few matches for the blend so far, so every
+ * roll is different but none is a clash. Oils that are hidden for the
+ * household or break a safety rule for the method are never used.
+ *
+ * `random` returns a number from 0 up to but not including 1, like
+ * Math.random. Returns an empty list when the shelf has nothing to roll.
+ */
+export function rollBlend(
+  request: RollRequest,
+  ctx: RollContext,
+  random: () => number = Math.random,
+): BlendItem[] {
+  const skin = isSkinMethod(request.method)
+  const scoring = (blend: readonly BlendItem[]) => ({
+    blend,
+    method: request.method,
+    volumeMl: request.volumeMl,
+    dilutionPct: skin ? request.dilutionPct : undefined,
+    dropsPerMl: ctx.dropsPerMl,
+    mood: request.mood,
+    profile: ctx.profile,
+    oils: ctx.oils,
+    compat: ctx.compat,
+  })
+
+  const usable = [...ctx.owned]
+    .map((id) => ctx.oils.get(id))
+    .filter((oil): oil is NonNullable<typeof oil> => oil !== undefined)
+    .filter(
+      (oil) =>
+        !isHiddenForProfile(oil, ctx.profile, ctx.oils) && !breaksSafetyRule(oil, scoring([])),
+    )
+    .sort((a, b) => a.id.localeCompare(b.id))
+  if (usable.length === 0) return []
+  const usableIds = usable.map((oil) => oil.id)
+
+  const fitting = request.mood ? usable.filter((oil) => oil.moods.includes(request.mood!)) : []
+  const seeds = fitting.length > 0 ? fitting : usable
+
+  // A small skin blend only has room for as many oils as it has drops.
+  const room = skin
+    ? topicalTotalDrops(request.volumeMl, ctx.dropsPerMl, request.dilutionPct ?? 0)
+    : ROLL_MAX_OILS
+  const most = Math.max(1, Math.min(ROLL_MAX_OILS, room, usable.length))
+  const pick = <T,>(list: readonly T[]): T => list[Math.min(list.length - 1, Math.floor(random() * list.length))]
+  const avoidKey = request.avoid && request.avoid.length > 0 ? setKey(request.avoid) : null
+
+  let items: BlendItem[] = []
+  for (let attempt = 0; attempt < ROLL_ATTEMPTS; attempt++) {
+    const sizeRoll = random()
+    const size = Math.min(most, sizeRoll < 0.2 ? 2 : sizeRoll < 0.8 ? 3 : 4)
+    const seed = pick(seeds)
+    items = [{ oilId: seed.id, parts: defaultParts(seed) }]
+    while (items.length < size) {
+      const choices = suggestOils(scoring(items), usableIds, ROLL_CHOICES).filter(
+        (s) => s.penalties.length === 0 && s.score >= MIN_ADD_SCORE,
+      )
+      if (choices.length === 0) break
+      const oil = ctx.oils.get(pick(choices).oilId)
+      if (!oil) break
+      items.push({ oilId: oil.id, parts: defaultParts(oil) })
+    }
+    const enough = items.length >= Math.min(2, most)
+    if (enough && setKey(items.map((item) => item.oilId)) !== avoidKey) return items
+  }
+  return items
 }
 
 const trim = (n: number): string => String(Number(n.toFixed(2)))

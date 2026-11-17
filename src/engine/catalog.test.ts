@@ -4,6 +4,8 @@ import { OilSchema } from '../data/schema'
 import {
   POPULAR_OIL_IDS,
   buildCustomOil,
+  ingredientNames,
+  ingredientsLine,
   makeCustomOilId,
   normalizeText,
   searchOils,
@@ -59,6 +61,35 @@ describe('searchOils', () => {
   it('respects the limit', () => {
     expect(searchOils('', all, 5)).toHaveLength(5)
     expect(searchOils('a', all, 0)).toEqual([])
+  })
+})
+
+describe('blend ingredients', () => {
+  const get = (id: string) => OIL_INDEX.get(id)!
+
+  it('lists what a brand blend is made of, in label order', () => {
+    expect(ingredientNames(get('blues-buster'), OIL_INDEX)).toEqual(['Tangerine', 'Pink Grapefruit', 'Geranium'])
+    expect(ingredientsLine(get('blues-buster'), OIL_INDEX)).toBe('Tangerine, Pink Grapefruit, Geranium')
+    expect(ingredientsLine(get('germ-fighter'), OIL_INDEX)).toBe(
+      'Cinnamon Cassia, Lemon, Eucalyptus Globulus, Clove Bud, Rosemary 1,8-Cineole',
+    )
+  })
+
+  it('cuts a long list short when asked', () => {
+    expect(ingredientsLine(get('balance'), OIL_INDEX, 4)).toBe('Palmarosa, Lavender, Petitgrain, Clary Sage +5 more')
+    expect(ingredientsLine(get('blues-buster'), OIL_INDEX, 4)).toBe('Tangerine, Pink Grapefruit, Geranium')
+    expect(ingredientNames(get('balance'), OIL_INDEX)).toHaveLength(9)
+  })
+
+  it('has nothing to list for a single oil', () => {
+    expect(ingredientNames(get('lavender'), OIL_INDEX)).toEqual([])
+    expect(ingredientsLine(get('lavender'), OIL_INDEX)).toBeNull()
+  })
+
+  it('has ingredients for every brand blend in the library', () => {
+    for (const oil of OIL_INDEX.values()) {
+      if (oil.kind === 'blend') expect(ingredientsLine(oil, OIL_INDEX), oil.id).not.toBeNull()
+    }
   })
 })
 

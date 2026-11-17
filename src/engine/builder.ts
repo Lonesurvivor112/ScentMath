@@ -16,6 +16,7 @@ import {
   type DropLine,
 } from './calculator'
 import { harmonyScore, noteShares, type CompatFn, type HarmonyResult } from './harmony'
+import { rollBlend } from './ideas'
 import type { OilIndex, ResolvedOil } from './resolve'
 import { checkBlend, type SafetyIssue } from './safety'
 import { suggestOils, type Suggestion } from './scoring'
@@ -271,6 +272,45 @@ export function evaluateDraft(draft: Draft, ctx: DraftContext): DraftView {
     harmony: harmonyScore(members, ctx.compat),
     notes: noteShares(members.map((m) => ({ note: m.oil.note, parts: m.parts }))),
     suggestions,
+  }
+}
+
+/**
+ * The dice button: replaces the oils with a random blend from the shelf,
+ * keeping the method, size, dilution and goal. With a goal picked the blend
+ * is built around an oil that fits it. Returns the draft unchanged when the
+ * shelf has nothing to roll.
+ */
+export function rollDraft(
+  draft: Draft,
+  ctx: Pick<DraftContext, 'profile' | 'oils' | 'compat' | 'owned'>,
+  random: () => number = Math.random,
+): Draft {
+  const items = rollBlend(
+    {
+      method: draft.method,
+      volumeMl: draft.volumeMl,
+      dilutionPct: draft.dilutionPct,
+      mood: draft.mood,
+      avoid: draft.items.map((item) => item.oilId),
+    },
+    {
+      owned: ctx.owned,
+      oils: ctx.oils,
+      compat: ctx.compat,
+      profile: ctx.profile,
+      dropsPerMl: ctx.profile.dropsPerMl,
+    },
+    random,
+  )
+  if (items.length === 0) return draft
+  return {
+    name: '',
+    method: draft.method,
+    volumeMl: draft.volumeMl,
+    dilutionPct: draft.dilutionPct,
+    mood: draft.mood,
+    items,
   }
 }
 

@@ -1,3 +1,4 @@
+import { ingredientsLine } from '../engine/catalog'
 import type { OilIndex } from '../engine/resolve'
 import type { Suggestion } from '../engine/scoring'
 import { capBackground } from './OilCap'
@@ -20,6 +21,7 @@ export function PairList({ suggestions, oils, onAdd }: PairListProps) {
         const oil = oils.get(suggestion.oilId)
         if (!oil) return null
         const caution = suggestion.penalties.includes('safety')
+        const ingredients = ingredientsLine(oil, oils, 5)
         return (
           <li key={suggestion.oilId} className="flex items-center gap-3 py-2">
             <span
@@ -28,7 +30,11 @@ export function PairList({ suggestions, oils, onAdd }: PairListProps) {
               style={{ background: capBackground(oil.families) }}
             />
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium text-stone-900">{oil.name}</p>
+              <p className="truncate text-sm font-medium text-stone-900">
+                {oil.name}
+                {oil.kind === 'blend' && <span className="ml-1.5 text-xs font-normal text-stone-500">Blend</span>}
+              </p>
+              {ingredients && <p className="text-xs text-stone-600">Made of {ingredients}</p>}
               <p className="text-xs text-stone-600">
                 {caution ? 'Has a safety caution for this method' : suggestion.reason}
               </p>

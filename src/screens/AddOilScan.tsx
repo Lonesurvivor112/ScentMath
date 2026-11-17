@@ -4,6 +4,7 @@ import { OilSearchList } from '../components/OilSearchList'
 import { SizePicker } from '../components/SizePicker'
 import type { BarcodeEntry } from '../data/schema'
 import { normalizeBarcode } from '../engine/barcode'
+import { ingredientsLine } from '../engine/catalog'
 import type { OilIndex, ResolvedOil } from '../engine/resolve'
 import { DEFAULT_SIZE_ML } from '../engine/shelf'
 import type { ShelfRow } from '../store/db'
@@ -146,6 +147,8 @@ export function AddOilScan({ onCreateForBarcode }: AddOilScanProps) {
   }
 
   const scannerPaused = pending !== null
+  const pendingOil = pending ? oils.get(pending.entry.oilId) : undefined
+  const pendingIngredients = pendingOil ? ingredientsLine(pendingOil, oils) : null
 
   return (
     <div className="space-y-4">
@@ -192,6 +195,7 @@ export function AddOilScan({ onCreateForBarcode }: AddOilScanProps) {
           <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase">Found</p>
           <p className="mt-1 text-lg font-semibold text-stone-900">{describe(pending.entry).name}</p>
           <p className="text-sm text-stone-600">{describe(pending.entry).detail}</p>
+          {pendingIngredients && <p className="mt-1 text-xs text-stone-600">Made of {pendingIngredients}</p>}
           <div className="mt-3 grid grid-cols-2 gap-2">
             <button
               type="button"

@@ -30,6 +30,8 @@ export interface ResolvedOil {
   safety: Safety
   /** Single-oil ids inside a brand blend. Empty for single oils. */
   components: string[]
+  /** Where a blend's ingredient list came from. */
+  componentsNote?: string
   /** True for a brand blend with no families set and no usable components. */
   incomplete: boolean
 }
@@ -127,6 +129,7 @@ function resolveBlend(
     affinities: [...oil.affinities],
     safety: oil.safety,
     components: components.map((c) => c.id),
+    componentsNote: oil.componentsNote,
     incomplete: families.length === 0,
   }
 }
