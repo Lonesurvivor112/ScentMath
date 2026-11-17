@@ -31,7 +31,8 @@ function IdeaCard({ match, oils, drops, caution, onOpen }: IdeaCardProps) {
   const nameOf = (id: string) => oils.get(id)?.name ?? id
   const madeOf = (id: string) => {
     const oil = oils.get(id)
-    return oil ? ingredientsLine(oil, oils, 5) : null
+    // The whole card is one button, so it can't hold a "+N more" button: show every ingredient.
+    return oil ? ingredientsLine(oil, oils) : null
   }
   return (
     <li>

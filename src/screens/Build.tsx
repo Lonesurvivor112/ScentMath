@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { BalanceMeter } from '../components/BalanceMeter'
 import { DropStepper } from '../components/DropStepper'
+import { MadeOf } from '../components/MadeOf'
 import { MoodChips } from '../components/MoodChips'
 import { capBackground } from '../components/OilCap'
 import { OilSearchList } from '../components/OilSearchList'
@@ -29,7 +30,6 @@ import {
   stepDrops,
 } from '../engine/builder'
 import { isSkinMethod } from '../engine/calculator'
-import { ingredientsLine } from '../engine/catalog'
 import { describeSize } from '../engine/ideas'
 import type { ResolvedOil } from '../engine/resolve'
 import { ownedOilIds } from '../engine/shelf'
@@ -313,7 +313,6 @@ export function Build() {
                 const oil = oils.get(line.oilId)
                 const name = oil?.name ?? line.oilId
                 const atMax = line.maxDrops !== undefined && line.drops >= line.maxDrops
-                const ingredients = oil ? ingredientsLine(oil, oils, 5) : null
                 const info = [
                   !owned.has(line.oilId) ? 'Not on your shelf' : null,
                   skin && line.pct !== undefined && line.drops > 0 ? `${trim(line.pct)}% of the blend` : null,
@@ -344,7 +343,7 @@ export function Build() {
                         <CloseIcon size={18} />
                       </button>
                     </div>
-                    {ingredients && <p className="mt-0.5 pl-10 text-xs text-stone-600">Made of {ingredients}</p>}
+                    {oil && <MadeOf oil={oil} oils={oils} className="mt-0.5 pl-10" />}
                   </li>
                 )
               })}

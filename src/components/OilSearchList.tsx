@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react'
 import { FAMILY_LABELS } from '../data/labels'
-import { POPULAR_OIL_IDS, ingredientsLine, searchOils } from '../engine/catalog'
+import { POPULAR_OIL_IDS, searchOils } from '../engine/catalog'
 import type { OilIndex, ResolvedOil } from '../engine/resolve'
 import type { ShelfRow } from '../store/db'
+import { MadeOf } from './MadeOf'
 import { capBackground } from './OilCap'
 import { ScentGuideButton } from './ScentGuide'
 import { PlusIcon, SearchIcon } from './icons'
@@ -117,7 +118,6 @@ export function OilSearchList({
           const status = shelfStatus(oil.id, shelf)
           const done = doneCounts?.get(oil.id) ?? 0
           const families = oil.families.map((f) => FAMILY_LABELS[f]).join(', ')
-          const ingredients = ingredientsLine(oil, index, 5)
           return (
             <li key={oil.id} className="flex items-center gap-3 py-2">
               <span
@@ -132,7 +132,7 @@ export function OilSearchList({
                     .filter(Boolean)
                     .join(' · ')}
                 </p>
-                {ingredients && <p className="text-xs text-stone-600">Made of {ingredients}</p>}
+                <MadeOf oil={oil} oils={index} />
               </div>
               <button
                 type="button"
