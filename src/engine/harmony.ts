@@ -1,4 +1,5 @@
 import {
+  FAMILIES,
   NOTES,
   pairKey,
   type Compatibility,
@@ -164,4 +165,66 @@ export function harmonyScore(
     noteBalance: notes,
     intensityBalance: intensity,
   }
+}
+
+/** How much of a blend's scent comes from one family, 0 to 1. */
+export interface FamilyShare {
+  family: Family
+  share: number
+}
+
+/**
+ * Where a blend's scent leans, family by family, strongest first. Each oil
+ * counts by its parts times its intensity, so one drop of a strong oil
+ * outweighs one drop of a soft one. An oil with several families gives its
+ * first (main) family a double share: Lavender (floral, herbaceous) counts
+ * two thirds floral and one third herbaceous. Empty for an empty blend.
+ */
+export function scentProfile(
+  items: readonly { oil: Pick<ResolvedOil, 'families' | 'intensity'>; parts: number }[],
+): FamilyShare[] {
+  const weights = new Map<Family, number>()
+  let total = 0
+  for (const { oil, parts } of items) {
+    if (parts <= 0 || oil.families.length === 0) continue
+    const weight = parts * oil.intensity
+    const slices = oil.families.length + 1 // the main family takes two slices
+    oil.families.forEach((family, i) => {
+      const add = (weight * (i === 0 ? 2 : 1)) / slices
+      weights.set(family, (weights.get(family) ?? 0) + add)
+    })
+    total += weight
+  }
+  if (total === 0) return []
+  const order = (family: Family) => FAMILIES.indexOf(family)
+  return [...weights]
+    .map(([family, weight]) => ({ family, share: weight / total }))
+    .sort((a, b) => b.share - a.share || order(a.family) - order(b.family))
+}
+
+/** A one-line reading of a scent profile, for "Leans citrus, with herbaceous". */
+export type ScentLean =
+  | { kind: 'mostly'; first: Family }
+  | { kind: 'even'; first: Family; second: Family }
+  | { kind: 'leans'; first: Family; second?: Family }
+
+/** A family must hold this share to be named as the blend's second side. */
+export const SECOND_FAMILY_MIN = 0.15
+
+/**
+ * Sums up where a profile leans. "Mostly" when one family has 60% or more,
+ * "even" when the top two are within 10 points and both have 25% or more,
+ * otherwise "leans" toward the first, naming a second family that has at
+ * least 15%. Null for an empty profile.
+ */
+export function scentLean(profile: readonly FamilyShare[]): ScentLean | null {
+  const [first, second] = profile
+  if (!first) return null
+  if (first.share >= 0.6) return { kind: 'mostly', first: first.family }
+  if (second && second.share >= 0.25 && first.share - second.share < 0.1) {
+    return { kind: 'even', first: first.family, second: second.family }
+  }
+  return second && second.share >= SECOND_FAMILY_MIN
+    ? { kind: 'leans', first: first.family, second: second.family }
+    : { kind: 'leans', first: first.family }
 }

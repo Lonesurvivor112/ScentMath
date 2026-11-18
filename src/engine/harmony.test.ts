@@ -12,6 +12,8 @@ import {
   noteDistance,
   noteShares,
   oilPairCompat,
+  scentLean,
+  scentProfile,
   type BlendMember,
 } from './harmony'
 import { compat, oil } from './testing'
@@ -208,5 +210,74 @@ describe('harmonyScore', () => {
     )!
     expect(classic.score).toBeGreaterThan(clashing.score)
     expect(classic.score).toBeGreaterThanOrEqual(65)
+  })
+})
+
+describe('scentProfile', () => {
+  const shares = (items: [string, number][]) =>
+    Object.fromEntries(scentProfile(members(items)).map((s) => [s.family, Number(s.share.toFixed(4))]))
+
+  it('is empty for an empty blend or one with no drops', () => {
+    expect(scentProfile([])).toEqual([])
+    expect(scentProfile(members([['lavender', 0]]))).toEqual([])
+  })
+
+  it('gives a single-family oil the whole blend', () => {
+    expect(scentProfile(members([['sweet-orange', 3]]))).toEqual([{ family: 'citrus', share: 1 }])
+  })
+
+  it("gives an oil's main family a double share", () => {
+    // Lavender is floral then herbaceous: two thirds and one third.
+    expect(shares([['lavender', 2]])).toEqual({ floral: 0.6667, herbaceous: 0.3333 })
+  })
+
+  it('weights drops by intensity, so strong oils count more', () => {
+    // 1 drop of Peppermint (intensity 4) matches 2 drops of Sweet Orange (intensity 2).
+    expect(shares([['peppermint', 1], ['sweet-orange', 2]])).toEqual({ citrus: 0.5, minty: 0.5 })
+  })
+
+  it('sorts strongest first, ties in family order, and sums to 1', () => {
+    const profile = scentProfile(members([['sweet-orange', 3], ['lavender', 2]]))
+    expect(profile.map((s) => s.family)).toEqual(['citrus', 'floral', 'herbaceous'])
+    expect(profile[0].share).toBeCloseTo(0.6)
+    expect(profile.reduce((sum, s) => sum + s.share, 0)).toBeCloseTo(1)
+    expect(scentProfile(members([['peppermint', 1], ['sweet-orange', 2]]))[0].family).toBe('citrus')
+  })
+})
+
+describe('scentLean', () => {
+  it('is null for an empty profile', () => {
+    expect(scentLean([])).toBeNull()
+  })
+
+  it('says "mostly" when one family has 60% or more', () => {
+    expect(scentLean(scentProfile(members([['sweet-orange', 3], ['lavender', 2]])))).toEqual({ kind: 'mostly', first: 'citrus' })
+    expect(scentLean([{ family: 'woody', share: 1 }])).toEqual({ kind: 'mostly', first: 'woody' })
+  })
+
+  it('says "even" when the top two are close and both sizeable', () => {
+    expect(scentLean(scentProfile(members([['peppermint', 1], ['sweet-orange', 2]])))).toEqual({
+      kind: 'even',
+      first: 'citrus',
+      second: 'minty',
+    })
+  })
+
+  it('otherwise leans toward the first, naming a second side when it is big enough', () => {
+    // Cedarwood Atlas 6, Sweet Orange 4, Lavender 2 (floral 4/3, herbaceous 2/3) of 12.
+    expect(scentLean(scentProfile(members([['sweet-orange', 2], ['lavender', 1], ['cedarwood-atlas', 2]])))).toEqual({
+      kind: 'leans',
+      first: 'woody',
+      second: 'citrus',
+    })
+    expect(
+      scentLean([
+        { family: 'spicy', share: 0.55 },
+        { family: 'citrus', share: 0.14 },
+        { family: 'woody', share: 0.11 },
+        { family: 'sweet', share: 0.1 },
+        { family: 'resinous', share: 0.1 },
+      ]),
+    ).toEqual({ kind: 'leans', first: 'spicy' })
   })
 })

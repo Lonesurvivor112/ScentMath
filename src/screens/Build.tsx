@@ -7,6 +7,7 @@ import { capBackground } from '../components/OilCap'
 import { OilSearchList } from '../components/OilSearchList'
 import { PairList } from '../components/PairList'
 import { SafetyAbout, SafetyBanner } from '../components/SafetyBanner'
+import { ScentProfileMeter } from '../components/ScentProfileMeter'
 import { Sheet } from '../components/Sheet'
 import { Toast } from '../components/Toast'
 import { ScentGuideButton } from '../components/ScentGuide'
@@ -374,6 +375,7 @@ export function Build() {
       </section>
 
       {!empty && <BalanceMeter notes={view.notes} harmony={view.harmony} />}
+      {!empty && <ScentProfileMeter profile={view.scent} />}
 
       {!empty && (
         <SafetyBanner issues={view.issues} onAbout={() => setPanel('about')} onHousehold={() => setPanel('settings')} />

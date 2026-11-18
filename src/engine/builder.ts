@@ -15,7 +15,14 @@ import {
   type CalcResult,
   type DropLine,
 } from './calculator'
-import { harmonyScore, noteShares, type CompatFn, type HarmonyResult } from './harmony'
+import {
+  harmonyScore,
+  noteShares,
+  scentProfile,
+  type CompatFn,
+  type FamilyShare,
+  type HarmonyResult,
+} from './harmony'
 import { rollBlend } from './ideas'
 import type { OilIndex, ResolvedOil } from './resolve'
 import { checkBlend, type SafetyIssue } from './safety'
@@ -202,6 +209,8 @@ export interface DraftView {
   harmony: HarmonyResult | null
   /** Share of the blend in each note, by drops. */
   notes: Record<Note, number>
+  /** Where the scent leans by family, strongest first (drops times intensity). */
+  scent: FamilyShare[]
   /** The best oils to add next, from the oils the user owns. */
   suggestions: Suggestion[]
 }
@@ -271,6 +280,7 @@ export function evaluateDraft(draft: Draft, ctx: DraftContext): DraftView {
     issues,
     harmony: harmonyScore(members, ctx.compat),
     notes: noteShares(members.map((m) => ({ note: m.oil.note, parts: m.parts }))),
+    scent: scentProfile(members),
     suggestions,
   }
 }

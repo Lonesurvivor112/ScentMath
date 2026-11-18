@@ -111,6 +111,15 @@ describe('the main flow from the plan', () => {
     expect(evaluateDraft(newDraft(DEFAULT_PROFILE), ctx()).harmony).toBeNull()
   })
 
+  it('gives a scent profile that follows the drops', () => {
+    const view = evaluateDraft(mainFlow(), ctx())
+    expect(view.scent.length).toBeGreaterThan(0)
+    expect(view.scent.reduce((sum, s) => sum + s.share, 0)).toBeCloseTo(1)
+    const lavender = addOil(newDraft(DEFAULT_PROFILE), oil('lavender'))
+    expect(evaluateDraft(lavender, ctx()).scent.map((s) => s.family)).toEqual(['floral', 'herbaceous'])
+    expect(evaluateDraft(newDraft(DEFAULT_PROFILE), ctx()).scent).toEqual([])
+  })
+
   it('never suggests an oil that has run out', () => {
     const shelf = STARTER_SHELF.map((item) =>
       item.oilId === 'frankincense-carteri' ? { ...item, empty: true } : item,
